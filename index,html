@@ -1,1 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sports Psycho • Play. Compete. Go Crazy.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    :root {
+      --psycho-purple: #5821a6;
+      --psycho-dark: #2c0d59;
+      --psycho-light: #b07fff;
+      --psycho-blue: #4ad2ff;
+      --psycho-accent: #ffdd57;
+    }
+
+    body {
+      background: var(--psycho-purple);
+      font-family: 'Inter', sans-serif;
+    }
+
+    .psycho-bg {
+      background-image: url('https://www.transparenttextures.com/patterns/cartographer.png');
+      background-size: cover;
+    }
+  </style>
+</head>
+
+<body class="psycho-bg text-white">
+
+  <!-- HERO SECTION -->
+  <section class="relative text-center py-20 px-6">
+    <img
+      src="sports-psycho-logo.png"
+      alt="Sports Psycho Logo"
+      class="mx-auto w-40 md:w-52 mb-6 drop-shadow-2xl"
+    />
+
+    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight">
+      Welcome to <span class="text-[var(--psycho-accent)]">Sports Psycho</span>
+    </h1>
+
+    <p class="text-lg md:text-2xl mt-4 max-w-2xl mx-auto opacity-90">
+      The wildest way to join sports clubs, schedule games, find teammates, and compete in every recreational sport imaginable.
+    </p>
+
+    <div class="mt-8">
+      <a href="#clubs" class="inline-block bg-[var(--psycho-blue)] hover:bg-blue-300 text-black font-bold px-8 py-4 rounded-xl text-xl shadow-xl transition">
+        Join the Madness
+      </a>
+    </div>
+  </section>
+
+  <!-- FEATURES SECTION -->
+  <section id="clubs" class="py-20 px-6 bg-[var(--psycho-dark)]">
+    <h2 class="text-3xl md:text-5xl font-extrabold text-center mb-12">
+      Build. Join. Dominate.
+    </h2>
+
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+
+      <!-- Card 1 -->
+      <div class="bg-white/10 p-8 rounded-2xl shadow-xl backdrop-blur-md border border-white/20">
+        <h3 class="text-2xl font-bold mb-3 text-[var(--psycho-blue)]">Create Clubs</h3>
+        <p class="opacity-90">
+          Start private or public clubs for any sport — pickleball, golf, tennis, basketball, soccer, and more.
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white/10 p-8 rounded-2xl shadow-xl backdrop-blur-md border border-white/20">
+        <h3 class="text-2xl font-bold mb-3 text-[var(--psycho-blue)]">Schedule Events</h3>
+        <p class="opacity-90">
+          Create matches, invite players, set locations, track RSVPs, and manage teams effortlessly.
+        </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white/10 p-8 rounded-2xl shadow-xl backdrop-blur-md border border-white/20">
+        <h3 class="text-2xl font-bold mb-3 text-[var(--psycho-blue)]">Compete Hard</h3>
+        <p class="opacity-90">
+          Track results, level up, earn badges, and climb the Sports Psycho leaderboards.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SPORTS GRID -->
+  <section class="py-20 px-6">
+    <h2 class="text-3xl md:text-5xl font-extrabold text-center mb-12">
+      Every Sport. One Platform.
+    </h2>
+
+    <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+
+      <div class="bg-white/10 p-6 rounded-xl border border-white/20">🏓 Pickleball</div>
+      <div class="bg-white/10 p-6 rounded-xl border border-white/20">⛳ Golf</div>
+      <div class="bg-white/10 p-6 rounded-xl border border-white/20">🎾 Tennis</div>
+      <div class="bg-white/10 p-6 rounded-xl border border-white/20">🏀 Basketball</div>
+      <div class="bg-white/10 p-6 rounded-xl border border-white/20">🏈 Flag Football</div>
+      <div class="bg-white/10 p-6 rounded-xl border border-white/20">⚽ Soccer</div>
+      <div class="bg-white/10 p-6 rounded-xl border border-white/20">🏐 Volleyball</div>
+      <div class="bg-white/10 p-6 rounded-xl border border-white/20">🥏 Ultimate</div>
+
+    </div>
+  </section>
+
+  <!-- CTA FOOTER -->
+  <section class="py-20 px-6 bg-[var(--psycho-dark)] text-center">
+    <h2 class="text-3xl md:text-5xl font-extrabold mb-6">
+      Ready to go Psycho?
+    </h2>
+
+    <p class="opacity-80 mb-8 max-w-xl mx-auto">
+      Build your club. Host events. Meet players. Create rivalries.  
+      Sports Psycho brings the chaos — you bring the energy.
+    </p>
+
+    <a href="#" class="inline-block bg-[var(--psycho-accent)] hover:bg-yellow-300 text-black font-bold px-10 py-4 rounded-xl text-xl shadow-xl transition">
+      Create Your Club
+    </a>
+
+    <p class="mt-10 opacity-50 text-sm">© 2025 Sports Psycho. All Rights Reserved.</p>
+  </section>
+
+</body>
+</html>
 
