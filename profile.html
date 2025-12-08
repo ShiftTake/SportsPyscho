@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sports Psycho • Profile</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --psycho-purple: #5821a6;
+      --psycho-deep: #2a0b58;
+      --psycho-blue: #4ad2ff;
+      --psycho-yellow: #ffdd57;
+    }
+
+    body {
+      background: var(--psycho-purple);
+      background-image: url("https://www.transparenttextures.com/patterns/pw-maze-black.png");
+      color: white;
+      font-family: "Inter", sans-serif;
+      padding-bottom: 100px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.14);
+      border: 2px solid rgba(255, 255, 255, 0.18);
+      border-radius: 22px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.35);
+    }
+
+    .badge {
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 6px 14px;
+      border-radius: 14px;
+      font-size: 12px;
+      margin-right: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="px-4 py-4 flex items-center justify-between bg-[var(--psycho-deep)] shadow-xl sticky top-0 z-50">
+  <a href="dashboard.html" class="text-3xl text-[var(--psycho-yellow)]">←</a>
+  <h1 class="text-xl font-extrabold">Profile</h1>
+  <div class="w-8"></div>
+</header>
+
+<!-- USER INFO -->
+<section class="px-4 mt-6 text-center">
+  <img
+    src="assets/img/avatar-default.png"
+    class="w-32 h-32 rounded-full mx-auto border-4 border-white shadow-2xl"
+  />
+
+  <h2 class="text-3xl font-extrabold mt-4">Alex Johnson</h2>
+  <p class="opacity-80 text-sm mt-1">Austin, TX</p>
+
+  <button
+    class="mt-4 bg-[var(--psycho-blue)] text-black font-bold px-6 py-2 rounded-xl text-sm shadow-xl hover:scale-[1.03] transition"
+  >
+    Edit Profile
+  </button>
+</section>
+
+<!-- BIO -->
+<section class="px-4 mt-8">
+  <div class="card p-4">
+    <h3 class="text-xl font-extrabold mb-2">Bio</h3>
+    <p class="text-sm opacity-90 leading-relaxed">
+      Pickleball fanatic. Casual golfer. Always down to meet new players and join local sports events.  
+      Competitive, energetic, and always improving.
+    </p>
+  </div>
+</section>
+
+<!-- PREFERRED SPORTS -->
+<section class="px-4 mt-8">
+  <div class="card p-4">
+    <h3 class="text-xl font-extrabold mb-3">Preferred Sports</h3>
+
+    <div class="flex flex-wrap">
+      <span class="badge">Pickleball</span>
+      <span class="badge">Basketball</span>
+      <span class="badge">Golf</span>
+      <span class="badge">Tennis</span>
+    </div>
+  </div>
+</section>
+
+<!-- USER CLUBS -->
+<section class="px-4 mt-8">
+  <h3 class="text-2xl font-extrabold mb-3">Your Clubs</h3>
+
+  <div class="space-y-4">
+
+    <div onclick="window.location.href='club.html'" class="card p-4 flex items-center space-x-4 cursor-pointer hover:scale-[1.02] transition">
+      <img
+        src="assets/img/club-headers/pickleball.jpg"
+        class="w-16 h-16 rounded-xl object-cover border-2 border-white"
+      />
+      <div>
+        <p class="font-bold text-lg">Pickleball Maniacs</p>
+        <p class="opacity-80 text-sm">Member • 42 members</p>
+      </div>
+    </div>
+
+    <div onclick="window.location.href='club.html'" class="card p-4 flex items-center space-x-4 cursor-pointer hover:scale-[1.02] transition">
+      <img
+        src="assets/img/club-headers/basketball.jpg"
+        class="w-16 h-16 rounded-xl object-cover border-2 border-white"
+      />
+      <div>
+        <p class="font-bold text-lg">Hoops United</p>
+        <p class="opacity-80 text-sm">Member • 27 members</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PAST EVENTS -->
+<section class="px-4 mt-8 mb-20">
+  <h3 class="text-2xl font-extrabold mb-3">Past Events</h3>
+
+  <div class="space-y-4">
+
+    <div class="card p-4">
+      <p class="font-bold text-lg">Pickleball Double Round</p>
+      <p class="opacity-80 text-sm">Attended • Jan 12</p>
+    </div>
+
+    <div class="card p-4">
+      <p class="font-bold text-lg">3v3 Basketball Run</p>
+      <p class="opacity-80 text-sm">Attended • Jan 5</p>
+    </div>
+
+    <div class="card p-4">
+      <p class="font-bold text-lg">9 Holes Golf Meetup</p>
+      <p class="opacity-80 text-sm">Attended • Dec 28</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER NAV -->
+<nav class="fixed bottom-0 left-0 w-full bg-[var(--psycho-deep)] py-3 shadow-2xl border-t border-white/20">
+  <div class="flex justify-around text-xl">
+    <a href="dashboard.html" class="opacity-80 hover:opacity-100">🏠</a>
+    <a href="club.html" class="opacity-80 hover:opacity-100">⛳</a>
+    <a href="calendar.html" class="opacity-80 hover:opacity-100">📅</a>
+    <a href="search.html" class="opacity-80 hover:opacity-100">🔍</a>
+    <a href="profile.html" class="text-yellow-300 font-extrabold">👤</a>
+  </div>
+</nav>
+
+</body>
+</html>
