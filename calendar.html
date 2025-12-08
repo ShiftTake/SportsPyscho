@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sports Psycho • Calendar</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --psycho-purple: #5821a6;
+      --psycho-deep: #2a0b58;
+      --psycho-blue: #4ad2ff;
+      --psycho-yellow: #ffdd57;
+    }
+
+    body {
+      background: var(--psycho-purple);
+      background-image: url("https://www.transparenttextures.com/patterns/pw-maze-black.png");
+      font-family: "Inter", sans-serif;
+      color: white;
+      padding-bottom: 100px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.14);
+      border: 2px solid rgba(255, 255, 255, 0.18);
+      border-radius: 22px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+    }
+
+    .day {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin: auto;
+    }
+
+    .event-day {
+      background: var(--psycho-blue);
+      color: black;
+      font-weight: 900;
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+    }
+
+    .today {
+      border: 2px solid var(--psycho-yellow);
+      color: var(--psycho-yellow);
+      font-weight: 900;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header
+  class="px-4 py-4 flex items-center justify-between bg-[var(--psycho-deep)] shadow-xl sticky top-0 z-50"
+>
+  <a href="dashboard.html" class="text-3xl text-[var(--psycho-yellow)]">←</a>
+  <h1 class="text-xl font-extrabold">Calendar</h1>
+  <div class="w-8"></div>
+</header>
+
+<!-- MONTH + TODAY BUTTON -->
+<section class="px-4 mt-6 flex justify-between items-center">
+  <h2 class="text-2xl font-extrabold">January 2025</h2>
+
+  <button
+    class="bg-[var(--psycho-blue)] text-black px-4 py-2 rounded-xl font-bold shadow hover:scale-[1.02] transition"
+  >
+    Today
+  </button>
+</section>
+
+<!-- DAYS OF WEEK -->
+<section class="px-4 mt-4 text-center text-sm font-bold opacity-80">
+  <div class="grid grid-cols-7 gap-2">
+    <div>Sun</div>
+    <div>Mon</div>
+    <div>Tue</div>
+    <div>Wed</div>
+    <div>Thu</div>
+    <div>Fri</div>
+    <div>Sat</div>
+  </div>
+</section>
+
+<!-- MONTH GRID -->
+<section class="px-4 mt-3 text-center">
+  <div class="grid grid-cols-7 gap-3">
+
+    <!-- Empty days before month starts -->
+    <div></div>
+    <div></div>
+
+    <!-- Example month layout with events -->
+
+    <div class="day">1</div>
+    <div class="day">2</div>
+    <div class="day">3</div>
+
+    <div class="day event-day cursor-pointer" onclick="window.location.href='event.html'">
+      4
+    </div>
+
+    <div class="day">5</div>
+    <div class="day">6</div>
+
+    <div class="day today">7</div>
+
+    <div class="day">8</div>
+    <div class="day">9</div>
+    <div class="day event-day cursor-pointer" onclick="window.location.href='event.html'">10</div>
+
+    <div class="day">11</div>
+    <div class="day">12</div>
+    <div class="day">13</div>
+    <div class="day">14</div>
+    <div class="day">15</div>
+    <div class="day">16</div>
+    <div class="day event-day cursor-pointer" onclick="window.location.href='event.html'">17</div>
+
+    <div class="day">18</div>
+    <div class="day">19</div>
+    <div class="day">20</div>
+
+    <div class="day event-day cursor-pointer" onclick="window.location.href='event.html'">21</div>
+
+    <div class="day">22</div>
+    <div class="day">23</div>
+    <div class="day">24</div>
+    <div class="day">25</div>
+    <div class="day">26</div>
+    <div class="day event-day cursor-pointer" onclick="window.location.href='event.html'">27</div>
+
+    <div class="day">28</div>
+    <div class="day">29</div>
+    <div class="day">30</div>
+    <div class="day">31</div>
+
+  </div>
+</section>
+
+<!-- UPCOMING EVENTS PREVIEW -->
+<section class="px-4 mt-10 mb-24">
+  <h3 class="text-2xl font-extrabold mb-4">Upcoming Events</h3>
+
+  <div class="space-y-4">
+
+    <div
+      onclick="window.location.href='event.html'"
+      class="card p-4 cursor-pointer hover:scale-[1.02] transition"
+    >
+      <p class="font-extrabold text-lg">Pickleball Double Round</p>
+      <p class="opacity-80 text-sm">Tuesday • Jan 4 • 6 PM</p>
+    </div>
+
+    <div
+      onclick="window.location.href='event.html'"
+      class="card p-4 cursor-pointer hover:scale-[1.02] transition"
+    >
+      <p class="font-extrabold text-lg">3v3 Basketball Run</p>
+      <p class="opacity-80 text-sm">Friday • Jan 10 • 7 PM</p>
+    </div>
+
+    <div
+      onclick="window.location.href='event.html'"
+      class="card p-4 cursor-pointer hover:scale-[1.02] transition"
+    >
+      <p class="font-extrabold text-lg">9 Holes Golf Meetup</p>
+      <p class="opacity-80 text-sm">Sunday • Jan 17 • 10 AM</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER NAVIGATION -->
+<nav
+  class="fixed bottom-0 left-0 w-full bg-[var(--psycho-deep)] py-3 shadow-2xl border-t border-white/20"
+>
+  <div class="flex justify-around text-xl">
+    <a href="dashboard.html" class="opacity-80 hover:opacity-100">🏠</a>
+    <a href="club.html" class="opacity-80 hover:opacity-100">⛳</a>
+    <a href="calendar.html" class="text-yellow-300 font-extrabold">📅</a>
+    <a href="search.html" class="opacity-80 hover:opacity-100">🔍</a>
+    <a href="profile.html" class="opacity-80 hover:opacity-100">👤</a>
+  </div>
+</nav>
+
+</body>
+</html>
