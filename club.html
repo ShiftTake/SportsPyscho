@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sports Psycho • Club</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --psycho-purple: #5821a6;
+      --psycho-deep: #2a0b58;
+      --psycho-blue: #4ad2ff;
+      --psycho-yellow: #ffdd57;
+      --psycho-light-purple: #b07fff;
+    }
+
+    body {
+      background: var(--psycho-purple);
+      background-image: url("https://www.transparenttextures.com/patterns/pw-maze-black.png");
+      color: white;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.12);
+      border: 2px solid rgba(255, 255, 255, 0.15);
+      border-radius: 18px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+    }
+
+    .tab-active {
+      border-bottom: 3px solid var(--psycho-yellow);
+      font-weight: 900;
+      color: var(--psycho-yellow);
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER / BACK BUTTON -->
+<header class="px-4 py-4 flex items-center justify-between bg-[var(--psycho-deep)] shadow-xl sticky top-0 z-50">
+  <a href="dashboard.html" class="text-3xl text-[var(--psycho-yellow)]">←</a>
+  <h1 class="text-xl font-extrabold tracking-wide">Club</h1>
+  <div class="w-8"></div>
+</header>
+
+<!-- CLUB HERO -->
+<section class="px-4 mt-5">
+  <div class="card p-4">
+    <img src="assets/img/club-headers/pickleball-header.jpg" class="w-full h-40 object-cover rounded-xl">
+
+    <div class="mt-4 flex justify-between items-center">
+      <div>
+        <h2 class="text-3xl font-extrabold">Pickleball Maniacs</h2>
+        <p class="opacity-80 text-sm">Public • 42 Members • 2.3 miles away</p>
+      </div>
+
+      <button class="bg-[var(--psycho-blue)] text-black font-bold px-4 py-2 rounded-xl">
+        Join Club
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- TABS -->
+<section class="mt-6">
+  <div class="flex justify-around text-lg font-bold px-4 pb-3 border-b border-white/30">
+    <button id="tab-events" class="tab-active">Events</button>
+    <button id="tab-members" class="opacity-70 hover:opacity-100">Members</button>
+    <button id="tab-about" class="opacity-70 hover:opacity-100">About</button>
+  </div>
+</section>
+
+<!-- TAB CONTENT -->
+<div id="content-container" class="px-4 pb-24">
+
+  <!-- EVENTS TAB -->
+  <div id="events-tab" class="mt-6 space-y-4">
+
+    <div class="card p-4 flex justify-between items-center">
+      <div>
+        <p class="font-extrabold text-lg">Pickleball Double Round</p>
+        <p class="text-sm opacity-80">Tuesday • 6 PM • Sports Plex</p>
+      </div>
+      <button class="bg-[var(--psycho-blue)] text-black font-bold px-4 py-2 rounded-xl">
+        View
+      </button>
+    </div>
+
+    <div class="card p-4 flex justify-between items-center">
+      <div>
+        <p class="font-extrabold text-lg">Beginner Mix-Up</p>
+        <p class="text-sm opacity-80">Friday • 5 PM • Court 12</p>
+      </div>
+      <button class="bg-[var(--psycho-blue)] text-black font-bold px-4 py-2 rounded-xl">
+        View
+      </button>
+    </div>
+
+  </div>
+
+  <!-- MEMBERS TAB -->
+  <div id="members-tab" class="mt-6 space-y-4 hidden">
+
+    <div class="card p-4 flex items-center justify-between">
+      <div class="flex items-center">
+        <img src="assets/img/avatar-default.png" class="w-14 h-14 rounded-full mr-4 border border-white">
+        <div>
+          <p class="font-bold text-lg">Alex Johnson</p>
+          <p class="opacity-80 text-sm">Joined 2 weeks ago</p>
+        </div>
+      </div>
+      <span class="bg-[var(--psycho-yellow)] text-black px-3 py-1 rounded-xl font-bold text-sm">Owner</span>
+    </div>
+
+    <div class="card p-4 flex items-center justify-between">
+      <div class="flex items-center">
+        <img src="assets/img/avatar-default.png" class="w-14 h-14 rounded-full mr-4 border border-white">
+        <div>
+          <p class="font-bold text-lg">Mia Reyes</p>
+          <p class="opacity-80 text-sm">Joined 5 days ago</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card p-4 flex items-center justify-between">
+      <div class="flex items-center">
+        <img src="assets/img/avatar-default.png" class="w-14 h-14 rounded-full mr-4 border border-white">
+        <div>
+          <p class="font-bold text-lg">Devon Carter</p>
+          <p class="opacity-80 text-sm">Joined yesterday</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ABOUT TAB -->
+  <div id="about-tab" class="mt-6 space-y-4 hidden">
+
+    <div class="card p-4">
+      <h3 class="font-extrabold text-xl mb-2">About This Club</h3>
+      <p class="opacity-90">
+        Pickleball Maniacs is a public club open to all skill levels.  
+        We play weekly at multiple courts and host both competitive and recreational matches.
+      </p>
+    </div>
+
+    <div class="card p-4">
+      <h3 class="font-extrabold text-xl mb-2">Location</h3>
+      <p class="opacity-90">Sports Plex Courts, Austin, TX</p>
+    </div>
+
+    <div class="card p-4">
+      <h3 class="font-extrabold text-xl mb-2">Visibility</h3>
+      <p class="opacity-90">Public — anyone can join</p>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- FOOTER NAV -->
+<nav class="fixed bottom-0 left-0 w-full bg-[var(--psycho-deep)] py-3 shadow-2xl border-t border-white/20">
+  <div class="flex justify-around text-xl">
+    <a href="dashboard.html" class="text-yellow-300 font-extrabold">🏠</a>
+    <a href="#" class="opacity-80 hover:opacity-100">⛳</a>
+    <a href="calendar.html" class="opacity-80 hover:opacity-100">📅</a>
+    <a href="search.html" class="opacity-80 hover:opacity-100">🔍</a>
+    <a href="profile.html" class="opacity-80 hover:opacity-100">👤</a>
+  </div>
+</nav>
+
+<!-- TAB SCRIPT -->
+<script>
+  const tabEvents = document.getElementById("tab-events");
+  const tabMembers = document.getElementById("tab-members");
+  const tabAbout = document.getElementById("tab-about");
+
+  const eventsTab = document.getElementById("events-tab");
+  const membersTab = document.getElementById("members-tab");
+  const aboutTab = document.getElementById("about-tab");
+
+  function resetTabs() {
+    tabEvents.classList.remove("tab-active");
+    tabMembers.classList.remove("tab-active");
+    tabAbout.classList.remove("tab-active");
+
+    eventsTab.classList.add("hidden");
+    membersTab.classList.add("hidden");
+    aboutTab.classList.add("hidden");
+  }
+
+  tabEvents.onclick = () => {
+    resetTabs();
+    tabEvents.classList.add("tab-active");
+    eventsTab.classList.remove("hidden");
+  };
+
+  tabMembers.onclick = () => {
+    resetTabs();
+    tabMembers.classList.add("tab-active");
+    membersTab.classList.remove("hidden");
+  };
+
+  tabAbout.onclick = () => {
+    resetTabs();
+    tabAbout.classList.add("tab-active");
+    aboutTab.classList.remove("hidden");
+  };
+</script>
+
+</body>
+</html>
