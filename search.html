@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sports Psycho • Search Clubs</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --psycho-purple: #5821a6;
+      --psycho-deep: #2a0b58;
+      --psycho-blue: #4ad2ff;
+      --psycho-yellow: #ffdd57;
+    }
+
+    body {
+      background: var(--psycho-purple);
+      background-image: url("https://www.transparenttextures.com/patterns/pw-maze-black.png");
+      font-family: "Inter", sans-serif;
+      color: white;
+      padding-bottom: 90px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.14);
+      border: 2px solid rgba(255, 255, 255, 0.18);
+      border-radius: 24px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+    }
+
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 6px 14px;
+      border-radius: 12px;
+      font-size: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transition: 0.2s;
+    }
+
+    .filter-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header
+  class="px-4 py-4 flex items-center justify-between bg-[var(--psycho-deep)] shadow-xl sticky top-0 z-50"
+>
+  <a href="dashboard.html" class="text-3xl text-[var(--psycho-yellow)]">←</a>
+  <h1 class="text-xl font-extrabold">Search Clubs</h1>
+  <div class="w-8"></div>
+</header>
+
+<!-- SEARCH BAR -->
+<section class="px-4 mt-4">
+  <input
+    type="text"
+    placeholder="Search clubs..."
+    class="w-full px-4 py-3 text-black rounded-xl font-semibold shadow focus:outline-none"
+  />
+</section>
+
+<!-- FILTERS (Optional UI) -->
+<section class="px-4 mt-4">
+  <div class="flex space-x-3 overflow-x-auto pb-2">
+    <button class="filter-btn">All Sports</button>
+    <button class="filter-btn">Pickleball</button>
+    <button class="filter-btn">Golf</button>
+    <button class="filter-btn">Tennis</button>
+    <button class="filter-btn">Basketball</button>
+    <button class="filter-btn">Football</button>
+  </div>
+</section>
+
+<!-- RESULTS LIST -->
+<section class="px-4 mt-6 space-y-5">
+
+  <!-- CLUB CARD -->
+  <div onclick="window.location.href='club.html'" class="card p-4 transition hover:scale-[1.02] cursor-pointer">
+    <div class="flex items-center space-x-4">
+      <img
+        src="assets/img/club-headers/pickleball.jpg"
+        class="w-20 h-20 rounded-xl object-cover border-2 border-white"
+      />
+      <div>
+        <h3 class="text-xl font-extrabold">Pickleball Maniacs</h3>
+        <p class="text-sm opacity-80">2.3 miles away • Public • 42 members</p>
+      </div>
+    </div>
+  </div>
+
+  <div onclick="window.location.href='club.html'" class="card p-4 transition hover:scale-[1.02] cursor-pointer">
+    <div class="flex items-center space-x-4">
+      <img
+        src="assets/img/club-headers/basketball.jpg"
+        class="w-20 h-20 rounded-xl object-cover border-2 border-white"
+      />
+      <div>
+        <h3 class="text-xl font-extrabold">Hoops United</h3>
+        <p class="text-sm opacity-80">1.1 miles away • Public • 27 members</p>
+      </div>
+    </div>
+  </div>
+
+  <div onclick="window.location.href='club.html'" class="card p-4 transition hover:scale-[1.02] cursor-pointer">
+    <div class="flex items-center space-x-4">
+      <img
+        src="assets/img/club-headers/tennis.jpg"
+        class="w-20 h-20 rounded-xl object-cover border-2 border-white"
+      />
+      <div>
+        <h3 class="text-xl font-extrabold">Tennis Legends</h3>
+        <p class="text-sm opacity-80">5.8 miles away • Private • 19 members</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- FOOTER NAV -->
+<nav
+  class="fixed bottom-0 left-0 w-full bg-[var(--psycho-deep)] py-3 shadow-2xl border-t border-white/20"
+>
+  <div class="flex justify-around text-xl">
+    <a href="dashboard.html" class="opacity-80 hover:opacity-100">🏠</a>
+    <a href="club.html" class="opacity-80 hover:opacity-100">⛳</a>
+    <a href="calendar.html" class="opacity-80 hover:opacity-100">📅</a>
+    <a href="search.html" class="text-yellow-300 font-extrabold">🔍</a>
+    <a href="profile.html" class="opacity-80 hover:opacity-100">👤</a>
+  </div>
+</nav>
+
+</body>
+</html>
