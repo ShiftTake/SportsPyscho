@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sports Psycho • Create Club</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --psycho-purple: #5821a6;
+      --psycho-deep: #2a0b58;
+      --psycho-blue: #4ad2ff;
+      --psycho-yellow: #ffdd57;
+    }
+
+    body {
+      background: var(--psycho-purple);
+      background-image: url("https://www.transparenttextures.com/patterns/pw-maze-black.png");
+      font-family: 'Inter', sans-serif;
+      color: white;
+      padding-bottom: 100px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.14);
+      border: 2px solid rgba(255, 255, 255, 0.18);
+      border-radius: 24px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.35);
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="px-4 py-4 flex items-center justify-between bg-[var(--psycho-deep)] shadow-xl sticky top-0 z-50">
+  <a href="dashboard.html" class="text-3xl text-[var(--psycho-yellow)]">←</a>
+  <h1 class="text-xl font-extrabold">Create a Club</h1>
+  <div class="w-8"></div>
+</header>
+
+<!-- FORM CARD -->
+<section class="px-4 mt-6">
+  <div class="card p-6">
+
+    <!-- Club Name -->
+    <div class="mb-5">
+      <label class="text-sm font-semibold mb-1 block">Club Name</label>
+      <input 
+        type="text"
+        placeholder="Pickleball Maniacs"
+        class="w-full px-4 py-3 text-black rounded-xl font-semibold shadow focus:outline-none"
+      >
+    </div>
+
+    <!-- Sport Selector -->
+    <div class="mb-5">
+      <label class="text-sm font-semibold mb-1 block">Sport</label>
+      <select 
+        class="w-full px-4 py-3 text-black rounded-xl font-semibold shadow focus:outline-none"
+      >
+        <option>Pickleball</option>
+        <option>Golf</option>
+        <option>Tennis</option>
+        <option>Basketball</option>
+        <option>Football</option>
+        <option>Flag Football</option>
+        <option>Soccer</option>
+        <option>Volleyball</option>
+      </select>
+    </div>
+
+    <!-- Upload Image -->
+    <div class="mb-5">
+      <label class="text-sm font-semibold mb-2 block">Club Image</label>
+
+      <div class="bg-white/20 border border-white/40 rounded-xl p-4 text-center cursor-pointer hover:bg-white/30 transition">
+        <p class="opacity-80">Tap to upload club cover image</p>
+      </div>
+    </div>
+
+    <!-- Public / Private -->
+    <div class="mb-5">
+      <label class="text-sm font-semibold mb-2 block">Visibility</label>
+
+      <div class="flex items-center space-x-4">
+        <label class="flex items-center space-x-2">
+          <input type="radio" name="visibility" checked>
+          <span>Public</span>
+        </label>
+
+        <label class="flex items-center space-x-2">
+          <input type="radio" name="visibility">
+          <span>Private</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Location -->
+    <div class="mb-5">
+      <label class="text-sm font-semibold mb-1 block">Location</label>
+      <input 
+        type="text"
+        placeholder="Austin, TX • Sports Plex"
+        class="w-full px-4 py-3 text-black rounded-xl font-semibold shadow focus:outline-none"
+      >
+      <p class="opacity-70 text-xs mt-1">You can replace this with GPS autofill later.</p>
+    </div>
+
+    <!-- Description -->
+    <div class="mb-5">
+      <label class="text-sm font-semibold mb-1 block">Description</label>
+      <textarea 
+        rows="4"
+        placeholder="Describe your club, skill levels, rules, or weekly events..."
+        class="w-full px-4 py-3 text-black rounded-xl font-semibold shadow focus:outline-none"
+      ></textarea>
+    </div>
+
+    <!-- Create Button -->
+    <button 
+      onclick="window.location.href='club.html'"
+      class="w-full bg-[var(--psycho-blue)] text-black py-3 rounded-xl text-lg font-bold shadow-xl hover:scale-[1.02] transition"
+    >
+      Create Club
+    </button>
+
+  </div>
+</section>
+
+<!-- FOOTER NAV -->
+<nav class="fixed bottom-0 left-0 w-full bg-[var(--psycho-deep)] py-3 shadow-2xl border-t border-white/20">
+  <div class="flex justify-around text-xl">
+    <a href="dashboard.html" class="opacity-80 hover:opacity-100">🏠</a>
+    <a href="club.html" class="opacity-80 hover:opacity-100">⛳</a>
+    <a href="calendar.html" class="opacity-80 hover:opacity-100">📅</a>
+    <a href="search.html" class="opacity-80 hover:opacity-100">🔍</a>
+    <a href="profile.html" class="opacity-80 hover:opacity-100">👤</a>
+  </div>
+</nav>
+
+</body>
+</html>
