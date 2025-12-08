@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sports Psycho • Dashboard</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --psycho-purple: #5821a6;
+      --psycho-deep: #2a0b58;
+      --psycho-blue: #4ad2ff;
+      --psycho-yellow: #ffdd57;
+      --psycho-light-purple: #b07fff;
+    }
+
+    body {
+      background: var(--psycho-purple);
+      background-image: url("https://www.transparenttextures.com/patterns/pw-maze-black.png");
+      font-family: 'Inter', sans-serif;
+      color: #fff;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.12);
+      border: 2px solid rgba(255, 255, 255, 0.15);
+      border-radius: 18px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+    }
+
+    .tilt {
+      transform: rotate(-1deg);
+    }
+
+    .icon-btn {
+      background: var(--psycho-blue);
+      color: black;
+      font-weight: 800;
+      border-radius: 14px;
+      padding: 14px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      transition: 0.2s;
+    }
+    .icon-btn:hover {
+      transform: scale(1.06);
+      background: #7ee3ff;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- TOP NAV + SEARCH -->
+<header class="px-5 py-4 flex items-center justify-between sticky top-0 bg-[var(--psycho-deep)] shadow-xl z-50">
+  <img src="avatar.png" class="w-10 h-10 rounded-full border-2 border-white shadow-md" alt="User Avatar" />
+
+  <div class="flex-1 mx-4">
+    <input 
+      type="text"
+      placeholder="Search clubs..."
+      class="w-full px-4 py-2 rounded-xl text-black text-sm font-semibold border-2 border-black shadow-lg focus:outline-none"
+    />
+  </div>
+
+  <div class="text-yellow-300 text-3xl drop-shadow-lg">🔔</div>
+</header>
+
+
+<!-- QUICK ACTIONS -->
+<section class="px-5 mt-6">
+  <div class="grid grid-cols-4 gap-4 text-center">
+
+    <div class="icon-btn tilt">➕<br><span class="text-xs">Create</span></div>
+    <div class="icon-btn tilt">🏆<br><span class="text-xs">Join</span></div>
+    <div class="icon-btn tilt">📍<br><span class="text-xs">Nearby</span></div>
+    <div class="icon-btn tilt">📅<br><span class="text-xs">Calendar</span></div>
+
+  </div>
+</section>
+
+
+<!-- LOCAL CLUBS CAROUSEL -->
+<section class="mt-10 px-5">
+  <h2 class="text-2xl font-extrabold tracking-tight mb-3">
+    Local Clubs Near You
+  </h2>
+
+  <div class="flex space-x-5 overflow-x-auto pb-3">
+
+    <!-- Example club card -->
+    <div class="card w-64 p-4 flex-shrink-0">
+      <img src="pickelball.png" class="w-full h-32 object-cover rounded-xl mb-3" />
+      <h3 class="text-xl font-bold">Pickleball Maniacs</h3>
+      <p class="opacity-80 text-sm mt-1">2.3 miles away • 42 members</p>
+      <button class="mt-3 bg-[var(--psycho-blue)] text-black font-bold px-4 py-2 rounded-xl w-full">
+        Join
+      </button>
+    </div>
+
+    <div class="card w-64 p-4 flex-shrink-0">
+      <img src="basketball.png" class="w-full h-32 object-cover rounded-xl mb-3" />
+      <h3 class="text-xl font-bold">Hoops United</h3>
+      <p class="opacity-80 text-sm mt-1">1.1 miles away • 27 members</p>
+      <button class="mt-3 bg-[var(--psycho-blue)] text-black font-bold px-4 py-2 rounded-xl w-full">
+        Join
+      </button>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- YOUR CLUBS -->
+<section class="mt-12 px-5">
+  <h2 class="text-2xl font-extrabold tracking-tight mb-3">Your Clubs</h2>
+
+  <div class="space-y-4">
+
+    <div class="card p-4 flex items-center justify-between">
+      <div class="flex items-center">
+        <img src="golf.png" class="w-14 h-14 rounded-xl mr-4 border border-white" />
+        <div>
+          <p class="font-bold text-lg">Weekend Golf Crew</p>
+          <p class="text-sm opacity-80">Next event: Sat 10 AM</p>
+        </div>
+      </div>
+      <button class="bg-[var(--psycho-yellow)] text-black px-4 py-2 rounded-xl font-bold">
+        View
+      </button>
+    </div>
+
+    <div class="card p-4 flex items-center justify-between">
+      <div class="flex items-center">
+        <img src="tennis.png" class="w-14 h-14 rounded-xl mr-4 border border-white" />
+        <div>
+          <p class="font-bold text-lg">Tennis Addicts</p>
+          <p class="text-sm opacity-80">Next event: Today 6 PM</p>
+        </div>
+      </div>
+      <button class="bg-[var(--psycho-yellow)] text-black px-4 py-2 rounded-xl font-bold">
+        View
+      </button>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- EVENT PREVIEW -->
+<section class="mt-12 px-5">
+  <h2 class="text-2xl font-extrabold tracking-tight mb-3">
+    Upcoming Events
+  </h2>
+
+  <div class="space-y-4">
+
+    <div class="card p-4 flex items-center justify-between">
+      <div>
+        <p class="font-bold text-lg">Pickleball Double Round</p>
+        <p class="text-sm opacity-80">Today • 6 PM</p>
+      </div>
+      <span class="bg-green-400 text-black px-3 py-1 rounded-lg font-bold text-sm">
+        Accepted
+      </span>
+    </div>
+
+    <div class="card p-4 flex items-center justify-between">
+      <div>
+        <p class="font-bold text-lg">Flag Football 7v7</p>
+        <p class="text-sm opacity-80">Saturday • 2 PM</p>
+      </div>
+      <span class="bg-yellow-300 text-black px-3 py-1 rounded-lg font-bold text-sm">
+        Invited
+      </span>
+    </div>
+
+  </div>
+
+  <button class="mt-4 bg-white text-black font-bold px-4 py-2 rounded-xl shadow">
+    Open Full Calendar
+  </button>
+</section>
+
+
+<!-- SOCIAL FEED (LITE) -->
+<section class="mt-12 px-5 mb-20">
+  <h2 class="text-2xl font-extrabold tracking-tight mb-3">Latest Activity</h2>
+
+  <div class="space-y-4">
+
+    <div class="card p-4">
+      <p class="font-bold">🔥 Alex joined Pickleball Maniacs</p>
+      <p class="text-sm opacity-80">5 minutes ago</p>
+    </div>
+
+    <div class="card p-4">
+      <p class="font-bold">🏀 New basketball run created near you</p>
+      <p class="text-sm opacity-80">1 hour ago</p>
+    </div>
+
+    <div class="card p-4">
+      <p class="font-bold">⛳ A new golf club is forming in your area</p>
+      <p class="text-sm opacity-80">3 hours ago</p>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- FOOTER NAV -->
+<nav class="fixed bottom-0 left-0 w-full bg-[var(--psycho-deep)] py-3 shadow-2xl border-t border-white/20">
+  <div class="flex justify-around text-xl">
+
+    <a href="#" class="text-yellow-300 font-extrabold">🏠</a>
+    <a href="#" class="opacity-80 hover:opacity-100">⛳</a>
+    <a href="#" class="opacity-80 hover:opacity-100">📅</a>
+    <a href="#" class="opacity-80 hover:opacity-100">🔍</a>
+    <a href="#" class="opacity-80 hover:opacity-100">👤</a>
+
+  </div>
+</nav>
+
+</body>
+</html>
