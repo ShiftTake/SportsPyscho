@@ -3,133 +3,129 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sports Sicko • Schedule. Play. Repeat.</title>
+  <title>Siko • Schedule. Play. Dominate.</title>
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
     :root {
-      --sicko-purple: #4c1d95; /* Deep, vibrant purple */
-      --sicko-dark: #1e1b4b;   /* Midnight navy */
-      --sicko-neon: #a8ff35;   /* High-vis electric lime */
-      --sicko-blue: #0ea5e9;   /* Sharp sky blue */
-      --sicko-accent: #f59e0b; /* Action orange */
+      --siko-purple: #310a5d; 
+      --siko-dark: #0f051d;   
+      --siko-neon: #adff00;   /* Vibrant Siko Lime */
+      --siko-soft: #f3f4f6;
     }
 
     body {
-      background: var(--sicko-purple);
+      background-color: var(--siko-purple);
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
     }
 
-    .sicko-bg {
-      background-image: url('https://www.transparenttextures.com/patterns/cartographer.png');
-      background-attachment: fixed;
+    .siko-gradient {
+      background: linear-gradient(135deg, var(--siko-purple) 0%, var(--siko-dark) 100%);
     }
 
-    .glass-card {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(12px);
+    .siko-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .siko-card:hover {
+      border-color: var(--siko-neon);
+      transform: translateY(-5px);
+    }
+
+    .text-outline {
+      -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+      color: transparent;
     }
   </style>
 </head>
 
-<body class="sicko-bg text-white">
+<body class="text-white siko-gradient min-h-screen">
 
-  <section class="relative text-center py-24 px-6">
-    <div class="mb-6 inline-block bg-[var(--sicko-neon)] text-black px-4 py-1 rounded-full text-sm font-bold uppercase tracking-widest">
-      The Ultimate Scheduler
+  <nav class="flex justify-between items-center px-6 py-6 max-w-7xl mx-auto">
+    <div class="text-2xl font-black tracking-tighter uppercase italic">
+      S<span class="text-[var(--siko-neon)]">i</span>ko
     </div>
-    
-    <h1 class="text-5xl md:text-7xl font-black tracking-tighter mb-4">
-      SPORTS <span class="text-[var(--sicko-neon)]">SICKO</span>
+    <div class="space-x-6 text-sm font-bold uppercase tracking-widest hidden md:block">
+      <a href="#" class="hover:text-[var(--siko-neon)]">Schedule</a>
+      <a href="#" class="hover:text-[var(--siko-neon)]">Leagues</a>
+      <a href="#" class="hover:text-[var(--siko-neon)]">Find Players</a>
+    </div>
+    <a href="login.html" class="bg-white text-black px-5 py-2 rounded-full text-xs font-black uppercase tracking-tighter hover:bg-[var(--siko-neon)] transition-colors">
+      Login
+    </a>
+  </nav>
+
+  <section class="relative text-center pt-20 pb-32 px-6">
+    <h1 class="text-7xl md:text-9xl font-black tracking-tighter mb-4 italic uppercase">
+      Go <span class="text-[var(--siko-neon)]">Siko</span>
     </h1>
 
-    <p class="text-lg md:text-2xl mt-4 max-w-2xl mx-auto font-medium opacity-90">
-      Stop the "Is everyone coming?" group chats. Schedule games, manage your league, and get on the field.
+    <p class="text-lg md:text-2xl mt-4 max-w-xl mx-auto font-light opacity-80 leading-tight">
+      The elite scheduling tool for recreational athletes. Organizing your league shouldn't be a full-time job.
     </p>
 
-    <div class="mt-10 flex flex-col md:flex-row justify-center gap-4">
-      <a href="login.html" class="inline-block bg-[var(--sicko-neon)] hover:scale-105 text-black font-extrabold px-10 py-4 rounded-2xl text-xl shadow-[0_0_20px_rgba(168,255,53,0.3)] transition-all">
-        Start a Game
+    <div class="mt-12 flex flex-col md:flex-row justify-center gap-6">
+      <a href="create-game.html" class="bg-[var(--siko-neon)] text-black font-black px-12 py-5 rounded-full text-xl shadow-[0_10px_30px_rgba(173,255,0,0.2)] hover:scale-105 transition-transform">
+        Organize a Game
       </a>
-      <a href="#features" class="inline-block bg-white/10 hover:bg-white/20 border border-white/20 font-bold px-10 py-4 rounded-2xl text-xl transition-all">
-        Build a League
+      <a href="join-league.html" class="bg-transparent border-2 border-white/20 hover:border-white font-black px-12 py-5 rounded-full text-xl transition-all">
+        Join a League
       </a>
     </div>
   </section>
 
-  <section id="features" class="py-20 px-6 bg-[var(--sicko-dark)]">
+  <section class="py-24 px-6 bg-white/5 border-t border-white/10">
     <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-5xl font-black mb-4">LEAVE THE LOGISTICS TO US</h2>
-        <p class="text-gray-400">Whether it's a casual Sunday morning round or a competitive season.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-        <div class="glass-card p-8 rounded-3xl hover:border-[var(--sicko-neon)] transition-colors">
-          <div class="text-4xl mb-4">📅</div>
-          <h3 class="text-2xl font-bold mb-3 text-[var(--sicko-neon)]">Swift Scheduling</h3>
-          <p class="text-gray-300 leading-relaxed">
-            Drop a pin, set the time, and blast out invites. Syncs directly with your calendar so you never miss a kickoff.
-          </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="siko-card p-10 rounded-[2rem] md:col-span-2">
+          <h3 class="text-3xl font-black mb-4 uppercase">League Management</h3>
+          <p class="text-gray-400 text-lg mb-6">Automated round-robins, playoff brackets, and live standings. You bring the players, Siko does the math.</p>
+          <div class="flex gap-2">
+            <span class="bg-white/10 px-3 py-1 rounded-md text-xs font-mono">Standings.json</span>
+            <span class="bg-white/10 px-3 py-1 rounded-md text-xs font-mono">Brackets.v2</span>
+          </div>
         </div>
 
-        <div class="glass-card p-8 rounded-3xl hover:border-[var(--sicko-neon)] transition-colors">
-          <div class="text-4xl mb-4">🏆</div>
-          <h3 class="text-2xl font-bold mb-3 text-[var(--sicko-neon)]">League Logic</h3>
-          <p class="text-gray-300 leading-relaxed">
-            Run a full league with friends. Automated standings, schedule rotations, and playoff brackets built-in.
-          </p>
+        <div class="siko-card p-10 rounded-[2rem]">
+          <h3 class="text-3xl font-black mb-4 uppercase text-[var(--siko-neon)]">Quick RSVPs</h3>
+          <p class="text-gray-400">One-tap responses for your teammates. No more scrolling through 50 messages to see who's playing.</p>
         </div>
 
-        <div class="glass-card p-8 rounded-3xl hover:border-[var(--sicko-neon)] transition-colors">
-          <div class="text-4xl mb-4">✅</div>
-          <h3 class="text-2xl font-bold mb-3 text-[var(--sicko-neon)]">Real-Time RSVPs</h3>
-          <p class="text-gray-300 leading-relaxed">
-            Know exactly who's in and who's out. Automated reminders for the "maybe" crowd until they commit.
-          </p>
+        <div class="siko-card p-10 rounded-[2rem]">
+          <h3 class="text-3xl font-black mb-4 uppercase">Smart Alerts</h3>
+          <p class="text-gray-400">Rain delays? Field changes? Blast notifications to the whole squad instantly.</p>
+        </div>
+
+        <div class="siko-card p-10 rounded-[2rem] md:col-span-2 flex flex-col justify-between">
+          <div>
+            <h3 class="text-3xl font-black mb-4 uppercase">Multi-Sport Support</h3>
+            <p class="text-gray-400 text-lg">From Pickleball courts to Sunday League pitches.</p>
+          </div>
+          <div class="flex flex-wrap gap-4 mt-8">
+            <span class="text-2xl grayscale hover:grayscale-0 cursor-default transition-all">⚽</span>
+            <span class="text-2xl grayscale hover:grayscale-0 cursor-default transition-all">🏀</span>
+            <span class="text-2xl grayscale hover:grayscale-0 cursor-default transition-all">🎾</span>
+            <span class="text-2xl grayscale hover:grayscale-0 cursor-default transition-all">🏐</span>
+            <span class="text-2xl grayscale hover:grayscale-0 cursor-default transition-all">⛳</span>
+            <span class="text-2xl grayscale hover:grayscale-0 cursor-default transition-all">⚾</span>
+          </div>
         </div>
 
       </div>
     </div>
   </section>
 
-  <section class="py-24 px-6">
-    <h2 class="text-3xl md:text-4xl font-black text-center mb-12 uppercase tracking-tight">
-      Built for every <span class="italic underline decoration-[var(--sicko-neon)]">Sicko</span>
-    </h2>
-
-    <div class="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
-      <div class="bg-white/5 py-4 px-2 rounded-lg border border-white/10 text-center font-bold hover:bg-[var(--sicko-neon)] hover:text-black transition-all cursor-default">Pickleball</div>
-      <div class="bg-white/5 py-4 px-2 rounded-lg border border-white/10 text-center font-bold hover:bg-[var(--sicko-neon)] hover:text-black transition-all cursor-default">Golf</div>
-      <div class="bg-white/5 py-4 px-2 rounded-lg border border-white/10 text-center font-bold hover:bg-[var(--sicko-neon)] hover:text-black transition-all cursor-default">Tennis</div>
-      <div class="bg-white/5 py-4 px-2 rounded-lg border border-white/10 text-center font-bold hover:bg-[var(--sicko-neon)] hover:text-black transition-all cursor-default">Basketball</div>
-      <div class="bg-white/5 py-4 px-2 rounded-lg border border-white/10 text-center font-bold hover:bg-[var(--sicko-neon)] hover:text-black transition-all cursor-default">Softball</div>
-      <div class="bg-white/5 py-4 px-2 rounded-lg border border-white/10 text-center font-bold hover:bg-[var(--sicko-neon)] hover:text-black transition-all cursor-default">Soccer</div>
-      <div class="bg-white/5 py-4 px-2 rounded-lg border border-white/10 text-center font-bold hover:bg-[var(--sicko-neon)] hover:text-black transition-all cursor-default">Volleyball</div>
-      <div class="bg-white/5 py-4 px-2 rounded-lg border border-white/10 text-center font-bold hover:bg-[var(--sicko-neon)] hover:text-black transition-all cursor-default">Bowling</div>
+  <footer class="py-20 px-6 text-center">
+    <div class="text-6xl font-black italic mb-8 text-outline uppercase tracking-tighter">
+      Siko Mode
     </div>
-  </section>
-
-  <footer class="py-20 px-6 bg-[var(--sicko-dark)] text-center border-t border-white/10">
-    <h2 class="text-4xl md:text-5xl font-black mb-6">
-      STOP PLANNING.<br><span class="text-[var(--sicko-neon)]">START PLAYING.</span>
-    </h2>
-
-    <p class="text-gray-400 mb-10 max-w-xl mx-auto">
-      Join 10,000+ athletes who use Sports Sicko to manage their weekly matches and league seasons.
+    <p class="text-gray-500 font-bold uppercase tracking-widest text-xs">
+      © 2025 Siko Sports Technologies. Built for the obsessed.
     </p>
-
-    <a href="signup.html" class="inline-block bg-white text-black font-black px-12 py-5 rounded-2xl text-xl hover:bg-[var(--sicko-neon)] transition-colors shadow-2xl">
-      Create Your First Event
-    </a>
-
-    <div class="mt-16 flex justify-center gap-8 opacity-40 text-sm font-bold uppercase tracking-widest">
-      <span>© 2025 Sports Sicko</span>
-      <a href="#" class="hover:text-white">Privacy</a>
-      <a href="#" class="hover:text-white">Terms</a>
-    </div>
   </footer>
 
 </body>
