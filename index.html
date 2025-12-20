@@ -3,126 +3,134 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sports Psycho • Play. Compete. Go Crazy.</title>
+  <title>Sports Sicko • Schedule. Play. Repeat.</title>
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
     :root {
-      --psycho-purple: #5821a6;
-      --psycho-dark: #2c0d59;
-      --psycho-light: #b07fff;
-      --psycho-blue: #4ad2ff;
-      --psycho-accent: #ffdd57;
+      --sicko-purple: #4c1d95; /* Deep, vibrant purple */
+      --sicko-dark: #1e1b4b;   /* Midnight navy */
+      --sicko-neon: #a8ff35;   /* High-vis electric lime */
+      --sicko-blue: #0ea5e9;   /* Sharp sky blue */
+      --sicko-accent: #f59e0b; /* Action orange */
     }
 
     body {
-      background: var(--psycho-purple);
-      font-family: 'Inter', sans-serif;
+      background: var(--sicko-purple);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
     }
 
-    .psycho-bg {
+    .sicko-bg {
       background-image: url('https://www.transparenttextures.com/patterns/cartographer.png');
-      background-size: cover;
+      background-attachment: fixed;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
   </style>
 </head>
 
-<body class="psycho-bg text-white">
+<body class="sicko-bg text-white">
 
-  <!-- HERO SECTION -->
-  <section class="relative text-center py-20 px-6">
-    <img
-      src="assets/img/sports-psycho-logo.png"
-      alt="Sports Psycho Logo"
-      class="mx-auto w-40 md:w-52 mb-6 drop-shadow-2xl"
-    />
-
-    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight">
-      Welcome to <span class="text-[var(--psycho-accent)]">Sports Psycho</span>
+  <section class="relative text-center py-24 px-6">
+    <div class="mb-6 inline-block bg-[var(--sicko-neon)] text-black px-4 py-1 rounded-full text-sm font-bold uppercase tracking-widest">
+      The Ultimate Scheduler
+    </div>
+    
+    <h1 class="text-5xl md:text-7xl font-black tracking-tighter mb-4">
+      SPORTS <span class="text-[var(--sicko-neon)]">SICKO</span>
     </h1>
 
-    <p class="text-lg md:text-2xl mt-4 max-w-2xl mx-auto opacity-90">
-      The wildest way to join sports clubs, schedule games, find teammates, and compete in every recreational sport imaginable.
+    <p class="text-lg md:text-2xl mt-4 max-w-2xl mx-auto font-medium opacity-90">
+      Stop the "Is everyone coming?" group chats. Schedule games, manage your league, and get on the field.
     </p>
 
-    <div class="mt-8">
-      <a href="login.html" class="inline-block bg-[var(--psycho-blue)] hover:bg-blue-300 text-black font-bold px-8 py-4 rounded-xl text-xl shadow-xl transition">
-        Join the Madness
+    <div class="mt-10 flex flex-col md:flex-row justify-center gap-4">
+      <a href="login.html" class="inline-block bg-[var(--sicko-neon)] hover:scale-105 text-black font-extrabold px-10 py-4 rounded-2xl text-xl shadow-[0_0_20px_rgba(168,255,53,0.3)] transition-all">
+        Start a Game
+      </a>
+      <a href="#features" class="inline-block bg-white/10 hover:bg-white/20 border border-white/20 font-bold px-10 py-4 rounded-2xl text-xl transition-all">
+        Build a League
       </a>
     </div>
   </section>
 
-  <!-- FEATURES SECTION -->
-  <section id="clubs" class="py-20 px-6 bg-[var(--psycho-dark)]">
-    <h2 class="text-3xl md:text-5xl font-extrabold text-center mb-12">
-      Build. Join. Dominate.
-    </h2>
-
-    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
-
-      <div class="bg-white/10 p-8 rounded-2xl shadow-xl backdrop-blur-md border border-white/20">
-        <h3 class="text-2xl font-bold mb-3 text-[var(--psycho-blue)]">Create Clubs</h3>
-        <p class="opacity-90">
-          Start private or public clubs for any sport — pickleball, golf, tennis, basketball, soccer, and more.
-        </p>
+  <section id="features" class="py-20 px-6 bg-[var(--sicko-dark)]">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-5xl font-black mb-4">LEAVE THE LOGISTICS TO US</h2>
+        <p class="text-gray-400">Whether it's a casual Sunday morning round or a competitive season.</p>
       </div>
 
-      <div class="bg-white/10 p-8 rounded-2xl shadow-xl backdrop-blur-md border border-white/20">
-        <h3 class="text-2xl font-bold mb-3 text-[var(--psycho-blue)]">Schedule Events</h3>
-        <p class="opacity-90">
-          Create matches, invite players, set locations, track RSVPs, and manage teams effortlessly.
-        </p>
-      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-      <div class="bg-white/10 p-8 rounded-2xl shadow-xl backdrop-blur-md border border-white/20">
-        <h3 class="text-2xl font-bold mb-3 text-[var(--psycho-blue)]">Compete Hard</h3>
-        <p class="opacity-90">
-          Track results, level up, earn badges, and climb the Sports Psycho leaderboards.
-        </p>
-      </div>
+        <div class="glass-card p-8 rounded-3xl hover:border-[var(--sicko-neon)] transition-colors">
+          <div class="text-4xl mb-4">📅</div>
+          <h3 class="text-2xl font-bold mb-3 text-[var(--sicko-neon)]">Swift Scheduling</h3>
+          <p class="text-gray-300 leading-relaxed">
+            Drop a pin, set the time, and blast out invites. Syncs directly with your calendar so you never miss a kickoff.
+          </p>
+        </div>
 
+        <div class="glass-card p-8 rounded-3xl hover:border-[var(--sicko-neon)] transition-colors">
+          <div class="text-4xl mb-4">🏆</div>
+          <h3 class="text-2xl font-bold mb-3 text-[var(--sicko-neon)]">League Logic</h3>
+          <p class="text-gray-300 leading-relaxed">
+            Run a full league with friends. Automated standings, schedule rotations, and playoff brackets built-in.
+          </p>
+        </div>
+
+        <div class="glass-card p-8 rounded-3xl hover:border-[var(--sicko-neon)] transition-colors">
+          <div class="text-4xl mb-4">✅</div>
+          <h3 class="text-2xl font-bold mb-3 text-[var(--sicko-neon)]">Real-Time RSVPs</h3>
+          <p class="text-gray-300 leading-relaxed">
+            Know exactly who's in and who's out. Automated reminders for the "maybe" crowd until they commit.
+          </p>
+        </div>
+
+      </div>
     </div>
   </section>
 
-  <!-- SPORTS GRID -->
-  <section class="py-20 px-6">
-    <h2 class="text-3xl md:text-5xl font-extrabold text-center mb-12">
-      Every Sport. One Platform.
+  <section class="py-24 px-6">
+    <h2 class="text-3xl md:text-4xl font-black text-center mb-12 uppercase tracking-tight">
+      Built for every <span class="italic underline decoration-[var(--sicko-neon)]">Sicko</span>
     </h2>
 
-    <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-
-      <div class="bg-white/10 p-6 rounded-xl border border-white/20">🏓 Pickleball</div>
-      <div class="bg-white/10 p-6 rounded-xl border border-white/20">⛳ Golf</div>
-      <div class="bg-white/10 p-6 rounded-xl border border-white/20">🎾 Tennis</div>
-      <div class="bg-white/10 p-6 rounded-xl border border-white/20">🏀 Basketball</div>
-      <div class="bg-white/10 p-6 rounded-xl border border-white/20">🏈 Flag Football</div>
-      <div class="bg-white/10 p-6 rounded-xl border border-white/20">⚽ Soccer</div>
-      <div class="bg-white/10 p-6 rounded-xl border border-white/20">🏐 Volleyball</div>
-      <div class="bg-white/10 p-6 rounded-xl border border-white/20">🥏 Ultimate</div>
-
+    <div class="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="bg-white/5 py-4 px-2 rounded-lg border border-white/10 text-center font-bold hover:bg-[var(--sicko-neon)] hover:text-black transition-all cursor-default">Pickleball</div>
+      <div class="bg-white/5 py-4 px-2 rounded-lg border border-white/10 text-center font-bold hover:bg-[var(--sicko-neon)] hover:text-black transition-all cursor-default">Golf</div>
+      <div class="bg-white/5 py-4 px-2 rounded-lg border border-white/10 text-center font-bold hover:bg-[var(--sicko-neon)] hover:text-black transition-all cursor-default">Tennis</div>
+      <div class="bg-white/5 py-4 px-2 rounded-lg border border-white/10 text-center font-bold hover:bg-[var(--sicko-neon)] hover:text-black transition-all cursor-default">Basketball</div>
+      <div class="bg-white/5 py-4 px-2 rounded-lg border border-white/10 text-center font-bold hover:bg-[var(--sicko-neon)] hover:text-black transition-all cursor-default">Softball</div>
+      <div class="bg-white/5 py-4 px-2 rounded-lg border border-white/10 text-center font-bold hover:bg-[var(--sicko-neon)] hover:text-black transition-all cursor-default">Soccer</div>
+      <div class="bg-white/5 py-4 px-2 rounded-lg border border-white/10 text-center font-bold hover:bg-[var(--sicko-neon)] hover:text-black transition-all cursor-default">Volleyball</div>
+      <div class="bg-white/5 py-4 px-2 rounded-lg border border-white/10 text-center font-bold hover:bg-[var(--sicko-neon)] hover:text-black transition-all cursor-default">Bowling</div>
     </div>
   </section>
 
-  <!-- CTA FOOTER -->
-  <section class="py-20 px-6 bg-[var(--psycho-dark)] text-center">
-    <h2 class="text-3xl md:text-5xl font-extrabold mb-6">
-      Ready to go Psycho?
+  <footer class="py-20 px-6 bg-[var(--sicko-dark)] text-center border-t border-white/10">
+    <h2 class="text-4xl md:text-5xl font-black mb-6">
+      STOP PLANNING.<br><span class="text-[var(--sicko-neon)]">START PLAYING.</span>
     </h2>
 
-    <p class="opacity-80 mb-8 max-w-xl mx-auto">
-      Build your club. Host events. Meet players. Create rivalries.  
-      Sports Psycho brings the chaos — you bring the energy.
+    <p class="text-gray-400 mb-10 max-w-xl mx-auto">
+      Join 10,000+ athletes who use Sports Sicko to manage their weekly matches and league seasons.
     </p>
 
-    <a href="create-club.html" class="inline-block bg-[var(--psycho-accent)] hover:bg-yellow-300 text-black font-bold px-10 py-4 rounded-xl text-xl shadow-xl transition">
-      Create Your Club
+    <a href="signup.html" class="inline-block bg-white text-black font-black px-12 py-5 rounded-2xl text-xl hover:bg-[var(--sicko-neon)] transition-colors shadow-2xl">
+      Create Your First Event
     </a>
 
-    <p class="mt-10 opacity-50 text-sm">© 2025 Sports Psycho. All Rights Reserved.</p>
-  </section>
+    <div class="mt-16 flex justify-center gap-8 opacity-40 text-sm font-bold uppercase tracking-widest">
+      <span>© 2025 Sports Sicko</span>
+      <a href="#" class="hover:text-white">Privacy</a>
+      <a href="#" class="hover:text-white">Terms</a>
+    </div>
+  </footer>
 
 </body>
 </html>
-
-
