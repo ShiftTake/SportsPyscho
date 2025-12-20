@@ -70,7 +70,7 @@ class APIClient {
     
     const clubs = JSON.parse(localStorage.getItem('clubs') || '[]');
     const newClub = {
-      id: 'club_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9),
+      id: 'club_' + Date.now() + '_' + Math.random().toString(36).substring(2, 11),
       ...clubData,
       memberIds: [clubData.ownerId],
       createdAt: new Date().toISOString(),
@@ -228,7 +228,7 @@ class APIClient {
     
     const events = JSON.parse(localStorage.getItem('events') || '[]');
     const newEvent = {
-      id: 'event_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9),
+      id: 'event_' + Date.now() + '_' + Math.random().toString(36).substring(2, 11),
       ...eventData,
       participantIds: [],
       createdAt: new Date().toISOString(),
@@ -387,7 +387,7 @@ class APIClient {
     
     const tournaments = JSON.parse(localStorage.getItem('tournaments') || '[]');
     const newTournament = {
-      id: 'tournament_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9),
+      id: 'tournament_' + Date.now() + '_' + Math.random().toString(36).substring(2, 11),
       ...tournamentData,
       matches: [],
       bracket: null,
@@ -498,7 +498,7 @@ class APIClient {
     
     const invitations = JSON.parse(localStorage.getItem('invitations') || '[]');
     const newInvitation = {
-      id: 'invitation_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9),
+      id: 'invitation_' + Date.now() + '_' + Math.random().toString(36).substring(2, 11),
       ...invitationData,
       status: 'pending',
       createdAt: new Date().toISOString()

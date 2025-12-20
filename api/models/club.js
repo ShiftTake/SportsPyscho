@@ -20,7 +20,7 @@ class Club {
   }
 
   generateId() {
-    return 'club_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+    return 'club_' + Date.now() + '_' + Math.random().toString(36).substring(2, 11);
   }
 
   /**
