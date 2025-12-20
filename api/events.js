@@ -77,8 +77,9 @@ router.post('/create', async (req, res) => {
       });
     }
 
-    // Generate unique event ID
-    const eventId = `event_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    // Generate unique event ID using cryptographically secure method
+    const crypto = require('crypto');
+    const eventId = `event_${Date.now()}_${crypto.randomBytes(6).toString('hex')}`;
 
     // Create event object
     const newEvent = {

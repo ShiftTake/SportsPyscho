@@ -104,13 +104,16 @@ function sanitizeInput(input) {
 }
 
 /**
- * Generate unique ID with prefix
+ * Generate unique ID with prefix using cryptographically secure random values
  * @param {string} prefix - ID prefix (e.g., 'club', 'event', 'user')
  * @returns {string} Unique ID
  */
 function generateId(prefix) {
   const timestamp = Date.now();
-  const random = Math.random().toString(36).substr(2, 9);
+  // Use cryptographically secure random for production
+  // In Node.js 14.17.0+, use crypto.randomUUID() or generate secure random string
+  const crypto = require('crypto');
+  const random = crypto.randomBytes(6).toString('hex');
   return `${prefix}_${timestamp}_${random}`;
 }
 

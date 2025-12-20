@@ -56,8 +56,9 @@ router.post('/create', async (req, res) => {
       });
     }
 
-    // Generate unique club ID
-    const clubId = `club_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    // Generate unique club ID using cryptographically secure method
+    const crypto = require('crypto');
+    const clubId = `club_${Date.now()}_${crypto.randomBytes(6).toString('hex')}`;
 
     // Create club object
     const newClub = {

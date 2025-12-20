@@ -73,8 +73,9 @@ router.post('/create', async (req, res) => {
       });
     }
 
-    // Generate unique tournament ID
-    const tournamentId = `tournament_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    // Generate unique tournament ID using cryptographically secure method
+    const crypto = require('crypto');
+    const tournamentId = `tournament_${Date.now()}_${crypto.randomBytes(6).toString('hex')}`;
 
     // Generate bracket structure
     const bracket = generateBracketStructure(bracketType, participants);

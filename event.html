@@ -253,13 +253,20 @@
   });
 
   /**
-   * Generate iCalendar (.ics) file content
+   * Generate iCalendar (.ics) file content with proper timezone
    * @param {Object} event - Event data
    * @returns {string} ICS file content
    */
   function generateICS(event) {
-    const dtstart = event.date.replace(/-/g, '') + 'T' + event.time.replace(/:/g, '') + '00';
+    // Parse date and time
+    const eventDate = new Date(event.date + 'T' + event.time);
+    
+    // Format as UTC for iCalendar (YYYYMMDDTHHMMSSZ)
+    const dtstart = eventDate.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
     const dtstamp = new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+    
+    // Generate unique UID
+    const uid = Math.random().toString(36).substr(2, 9);
     
     return `BEGIN:VCALENDAR
 VERSION:2.0
@@ -267,7 +274,7 @@ PRODID:-//Sports Psycho//Event//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:${Math.random().toString(36).substr(2, 9)}@sportspsycho.com
+UID:${uid}@sportspsycho.com
 DTSTAMP:${dtstamp}
 DTSTART:${dtstart}
 SUMMARY:${event.name}

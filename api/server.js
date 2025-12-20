@@ -17,7 +17,6 @@
 
 const express = require('express');
 const cors = require('cors');
-const bodyParser = require('body-parser');
 
 // Import API routes
 const clubsRouter = require('./clubs');
@@ -44,9 +43,9 @@ const PORT = process.env.PORT || 3000;
 // Enable CORS for web and mobile apps
 app.use(cors(corsOptions));
 
-// Parse JSON request bodies
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+// Parse JSON request bodies (Express 4.16+ built-in)
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Request logging
 app.use(requestLogger);
