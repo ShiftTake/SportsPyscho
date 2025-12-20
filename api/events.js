@@ -1,10 +1,10 @@
 /**
- * Sports Psycho - Events API Module
+ * Sports Sicko - Events API Module
  * Provides CRUD operations for event scheduling and management
  * Supports one-time events, tournament events, RSVP system, and calendar sync
  * 
  * @module api/events
- * @author Sports Psycho Development Team
+ * @author Sports Sicko Development Team
  * @description Backend API endpoints for event operations
  * 
  * Mobile Integration Support: All endpoints return JSON formatted for web and mobile apps
@@ -473,9 +473,9 @@ router.get('/calendar/:userId', async (req, res) => {
 async function generateCalendarFile(event) {
   const icsContent = `BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//Sports Psycho//Event//EN
+PRODID:-//Sports Sicko//Event//EN
 BEGIN:VEVENT
-UID:${event.id}@sportspsycho.com
+UID:${event.id}@sportssicko.com
 DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').split('.')[0]}Z
 DTSTART:${event.dateTime.replace(/[-:]/g, '').split('.')[0]}Z
 SUMMARY:${event.name}

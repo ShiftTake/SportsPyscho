@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sports Psycho • Club</title>
+  <title>Sports Sicko • Club</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet"/>
 
   <style>
     :root {
-      --psycho-purple: #5821a6;
-      --psycho-deep: #2a0b58;
-      --psycho-blue: #4ad2ff;
-      --psycho-yellow: #ffdd57;
-      --psycho-light-purple: #b07fff;
+      --sicko-purple: #4c1d95;
+      --sicko-dark: #1e1b4b;
+      --sicko-blue: #0ea5e9;
+      --sicko-neon: #a8ff35;
+      --sicko-accent: #f59e0b;
     }
 
     body {
-      background: var(--psycho-purple);
+      background: var(--sicko-purple);
       background-image: url("https://www.transparenttextures.com/patterns/pw-maze-black.png");
       color: white;
       font-family: 'Inter', sans-serif;
@@ -33,9 +33,9 @@
     }
 
     .tab-active {
-      border-bottom: 3px solid var(--psycho-yellow);
+      border-bottom: 3px solid var(--sicko-neon);
       font-weight: 900;
-      color: var(--psycho-yellow);
+      color: var(--sicko-neon);
     }
   </style>
 </head>
@@ -43,8 +43,8 @@
 <body>
 
 <!-- HEADER / BACK BUTTON -->
-<header class="px-4 py-4 flex items-center justify-between bg-[var(--psycho-deep)] shadow-xl sticky top-0 z-50">
-  <a href="dashboard.html" class="text-3xl text-[var(--psycho-yellow)]">←</a>
+<header class="px-4 py-4 flex items-center justify-between bg-[var(--sicko-dark)] shadow-xl sticky top-0 z-50">
+  <a href="dashboard.html" class="text-3xl text-[var(--sicko-neon)]">←</a>
   <h1 class="text-xl font-extrabold tracking-wide">Club</h1>
   <div class="w-8"></div>
 </header>
@@ -60,7 +60,7 @@
         <p class="opacity-80 text-sm">Public • 42 Members • 2.3 miles away</p>
       </div>
 
-      <button class="bg-[var(--psycho-blue)] text-black font-bold px-4 py-2 rounded-xl">
+      <button class="bg-[var(--sicko-blue)] text-black font-bold px-4 py-2 rounded-xl">
         Join Club
       </button>
     </div>
@@ -83,7 +83,7 @@
   <div id="events-tab" class="mt-6 space-y-4">
 
     <!-- Create Event Button -->
-    <button onclick="window.location.href='create-event.html'" class="w-full bg-[var(--psycho-blue)] text-black font-bold py-3 rounded-xl shadow-xl hover:scale-[1.02] transition flex items-center justify-center space-x-2">
+    <button onclick="window.location.href='create-event.html'" class="w-full bg-[var(--sicko-blue)] text-black font-bold py-3 rounded-xl shadow-xl hover:scale-[1.02] transition flex items-center justify-center space-x-2">
       <span class="text-xl">➕</span>
       <span>Create New Event</span>
     </button>
@@ -93,7 +93,7 @@
         <p class="font-extrabold text-lg">Pickleball Double Round</p>
         <p class="text-sm opacity-80">Tuesday • 6 PM • Sports Plex</p>
       </div>
-      <button class="bg-[var(--psycho-blue)] text-black font-bold px-4 py-2 rounded-xl" onclick="window.location.href='event.html'">
+      <button class="bg-[var(--sicko-blue)] text-black font-bold px-4 py-2 rounded-xl" onclick="window.location.href='event.html'">
         View
       </button>
     </div>
@@ -103,13 +103,13 @@
         <p class="font-extrabold text-lg">Beginner Mix-Up</p>
         <p class="text-sm opacity-80">Friday • 5 PM • Court 12</p>
       </div>
-      <button class="bg-[var(--psycho-blue)] text-black font-bold px-4 py-2 rounded-xl" onclick="window.location.href='event.html'">
+      <button class="bg-[var(--sicko-blue)] text-black font-bold px-4 py-2 rounded-xl" onclick="window.location.href='event.html'">
         View
       </button>
     </div>
 
     <!-- Create Tournament Button -->
-    <button onclick="window.location.href='create-tournament.html'" class="w-full bg-[var(--psycho-yellow)] text-black font-bold py-3 rounded-xl shadow-xl hover:scale-[1.02] transition flex items-center justify-center space-x-2 mt-4">
+    <button onclick="window.location.href='create-tournament.html'" class="w-full bg-[var(--sicko-neon)] text-black font-bold py-3 rounded-xl shadow-xl hover:scale-[1.02] transition flex items-center justify-center space-x-2 mt-4">
       <span class="text-xl">🏆</span>
       <span>Create Tournament</span>
     </button>
@@ -127,7 +127,7 @@
           <p class="opacity-80 text-sm">Joined 2 weeks ago</p>
         </div>
       </div>
-      <span class="bg-[var(--psycho-yellow)] text-black px-3 py-1 rounded-xl font-bold text-sm">Owner</span>
+      <span class="bg-[var(--sicko-neon)] text-black px-3 py-1 rounded-xl font-bold text-sm">Owner</span>
     </div>
 
     <div class="card p-4 flex items-center justify-between">
@@ -178,7 +178,7 @@
 </div>
 
 <!-- FOOTER NAV -->
-<nav class="fixed bottom-0 left-0 w-full bg-[var(--psycho-deep)] py-3 shadow-2xl border-t border-white/20">
+<nav class="fixed bottom-0 left-0 w-full bg-[var(--sicko-dark)] py-3 shadow-2xl border-t border-white/20">
   <div class="flex justify-around text-xl">
     <a href="dashboard.html" class="text-yellow-300 font-extrabold">🏠</a>
     <a href="#" class="opacity-80 hover:opacity-100">⛳</a>

@@ -1,9 +1,9 @@
 /**
- * Sports Psycho - Main API Server
+ * Sports Sicko - Main API Server
  * Express.js server for handling all API endpoints
  * Supports both web and mobile applications
  * 
- * @author Sports Psycho Development Team
+ * @author Sports Sicko Development Team
  * @description Main API server with routing and middleware configuration
  * 
  * Features:
@@ -61,7 +61,7 @@ app.use(rateLimiter(100, 60000));
 app.get('/api/health', (req, res) => {
   res.json({
     success: true,
-    message: 'Sports Psycho API is running',
+    message: 'Sports Sicko API is running',
     timestamp: new Date().toISOString(),
     version: '1.0.0'
   });
@@ -152,7 +152,7 @@ if (require.main === module) {
     console.log(`
 ╔═══════════════════════════════════════════════════════════╗
 ║                                                           ║
-║            Sports Psycho API Server                       ║
+║            Sports Sicko API Server                       ║
 ║                                                           ║
 ║  Server running on: http://localhost:${PORT}               ║
 ║  Environment: ${process.env.NODE_ENV || 'development'}                      ║

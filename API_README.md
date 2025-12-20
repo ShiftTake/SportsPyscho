@@ -1,7 +1,7 @@
-# Sports Psycho API Documentation
+# Sports Sicko API Documentation
 
 ## Overview
-The Sports Psycho API provides RESTful endpoints for managing sports clubs, events, and tournaments. It supports both web and mobile applications with JSON responses.
+The Sports Sicko API provides RESTful endpoints for managing sports clubs, events, and tournaments. It supports both web and mobile applications with JSON responses.
 
 ## Base URL
 ```
@@ -27,7 +27,7 @@ Authorization: Bearer <your_jwt_token>
 ```json
 {
   "success": true,
-  "message": "Sports Psycho API is running",
+  "message": "Sports Sicko API is running",
   "timestamp": "2024-12-20T15:42:13.700Z",
   "version": "1.0.0"
 }
@@ -306,7 +306,7 @@ All mobile apps should include:
 ```
 Content-Type: application/json
 Authorization: Bearer <token>
-User-Agent: SportsPsycho-Mobile/1.0 (iOS/Android)
+User-Agent: SportsSicko-Mobile/1.0 (iOS/Android)
 ```
 
 ### Calendar Sync

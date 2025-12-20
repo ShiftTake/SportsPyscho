@@ -1,4 +1,4 @@
-# Sports Psycho
+# Sports Sicko
 
 A comprehensive web and mobile application for managing sports clubs, events, and tournaments.
 

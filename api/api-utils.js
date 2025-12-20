@@ -1,10 +1,10 @@
 /**
- * Sports Psycho - API Utilities Module
+ * Sports Sicko - API Utilities Module
  * Provides shared utility functions for API operations
  * Includes authentication, validation, error handling, and helper functions
  * 
  * @module api/api-utils
- * @author Sports Psycho Development Team
+ * @author Sports Sicko Development Team
  * @description Shared utilities for backend API
  */
 
@@ -52,7 +52,7 @@ function decodeMockToken(token) {
   return {
     id: 'user_12345',
     username: 'demo_user',
-    email: 'demo@sportspsycho.com'
+    email: 'demo@sportssicko.com'
   };
 }
 
@@ -286,8 +286,8 @@ const corsOptions = {
     const allowedOrigins = [
       'http://localhost:3000',
       'http://localhost:8080',
-      'https://sportspsycho.com',
-      'https://www.sportspsycho.com'
+      'https://sportssicko.com',
+      'https://www.sportssicko.com'
     ];
     
     if (allowedOrigins.indexOf(origin) !== -1) {

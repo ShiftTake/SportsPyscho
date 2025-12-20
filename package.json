@@ -1,7 +1,7 @@
 {
-  "name": "sportspsycho-api",
+  "name": "sportssicko-api",
   "version": "1.0.0",
-  "description": "Sports Psycho API - Backend for club, event, and tournament management",
+  "description": "Sports Sicko API - Backend for club, event, and tournament management",
   "main": "api/server.js",
   "scripts": {
     "start": "node api/server.js",
@@ -16,7 +16,7 @@
     "api",
     "rest"
   ],
-  "author": "Sports Psycho Development Team",
+  "author": "Sports Sicko Development Team",
   "license": "MIT",
   "dependencies": {
     "express": "^4.18.2",

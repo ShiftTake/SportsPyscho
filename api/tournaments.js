@@ -1,10 +1,10 @@
 /**
- * Sports Psycho - Tournaments API Module
+ * Sports Sicko - Tournaments API Module
  * Provides CRUD operations for tournament management
  * Supports bracket generation, match tracking, points system, and winner determination
  * 
  * @module api/tournaments
- * @author Sports Psycho Development Team
+ * @author Sports Sicko Development Team
  * @description Backend API endpoints for tournament operations
  * 
  * Mobile Integration Support: All endpoints return JSON formatted for web and mobile apps

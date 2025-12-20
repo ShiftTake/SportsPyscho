@@ -1,10 +1,10 @@
 /**
- * Sports Psycho - Club API Module
+ * Sports Sicko - Club API Module
  * Provides CRUD operations for club management
  * Supports public/private clubs, member invitations, and search functionality
  * 
  * @module api/clubs
- * @author Sports Psycho Development Team
+ * @author Sports Sicko Development Team
  * @description Backend API endpoints for club operations
  * 
  * Mobile Integration Support: All endpoints return JSON formatted for web and mobile apps
