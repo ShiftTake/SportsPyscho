@@ -72,15 +72,21 @@
 <section class="px-4 mt-6">
   <div class="flex space-x-4">
 
-    <button class="flex-1 bg-[var(--psycho-blue)] text-black py-3 rounded-xl text-lg font-bold shadow-xl hover:scale-[1.02] transition">
+    <button id="join-event-btn" class="flex-1 bg-[var(--psycho-blue)] text-black py-3 rounded-xl text-lg font-bold shadow-xl hover:scale-[1.02] transition">
       Join Event
     </button>
 
-    <button class="flex-1 bg-red-400 text-black py-3 rounded-xl text-lg font-bold shadow-xl hover:scale-[1.02] transition">
+    <button id="withdraw-event-btn" class="flex-1 bg-red-400 text-black py-3 rounded-xl text-lg font-bold shadow-xl hover:scale-[1.02] transition">
       Withdraw
     </button>
 
   </div>
+
+  <!-- Calendar Sync Button -->
+  <button id="calendar-sync-btn" class="w-full mt-3 bg-white/20 border border-white/40 text-white py-3 rounded-xl text-lg font-bold shadow-xl hover:scale-[1.02] transition flex items-center justify-center space-x-2">
+    <span>📅</span>
+    <span>Add to Calendar</span>
+  </button>
 </section>
 
 <!-- MAP PLACEHOLDER -->
@@ -149,6 +155,141 @@
     <a href="profile.html" class="opacity-80 hover:opacity-100">👤</a>
   </div>
 </nav>
+
+<!-- JavaScript for Event RSVP and Calendar Sync -->
+<script>
+  /**
+   * Sports Psycho - Event Details Module
+   * Handles event RSVP and calendar synchronization
+   * Developer: Modular design for API integration
+   */
+
+  // RSVP functionality
+  document.getElementById('join-event-btn').addEventListener('click', async function() {
+    const eventId = new URLSearchParams(window.location.search).get('id') || 'demo-event';
+    
+    try {
+      const response = await fetch(`/api/events/${eventId}/rsvp`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + localStorage.getItem('authToken')
+        },
+        body: JSON.stringify({ status: 'attending' })
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        if (result.onWaitlist) {
+          alert('Event is full. You have been added to the waitlist.');
+        } else {
+          alert('Successfully joined the event!');
+        }
+        location.reload();
+      } else {
+        const error = await response.json();
+        alert('Error joining event: ' + (error.message || 'Unknown error'));
+      }
+    } catch (error) {
+      // Demo mode - store locally
+      console.log('Joining event:', eventId);
+      alert('Successfully joined the event! (Demo mode)');
+    }
+  });
+
+  document.getElementById('withdraw-event-btn').addEventListener('click', async function() {
+    const eventId = new URLSearchParams(window.location.search).get('id') || 'demo-event';
+    
+    if (!confirm('Are you sure you want to withdraw from this event?')) {
+      return;
+    }
+
+    try {
+      const response = await fetch(`/api/events/${eventId}/rsvp`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + localStorage.getItem('authToken')
+        },
+        body: JSON.stringify({ status: 'declined' })
+      });
+
+      if (response.ok) {
+        alert('Successfully withdrawn from the event.');
+        location.reload();
+      } else {
+        const error = await response.json();
+        alert('Error withdrawing: ' + (error.message || 'Unknown error'));
+      }
+    } catch (error) {
+      // Demo mode
+      console.log('Withdrawing from event:', eventId);
+      alert('Successfully withdrawn from the event. (Demo mode)');
+    }
+  });
+
+  // Calendar sync functionality
+  document.getElementById('calendar-sync-btn').addEventListener('click', function() {
+    const eventData = {
+      name: 'Pickleball Double Round',
+      date: '2024-12-24',
+      time: '18:00',
+      location: 'Sports Plex Court 4',
+      description: 'A fun competitive pickleball double-round event'
+    };
+
+    // Generate iCalendar file
+    const icsContent = generateICS(eventData);
+    
+    // Create download link
+    const blob = new Blob([icsContent], { type: 'text/calendar' });
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'event.ics';
+    link.click();
+    
+    alert('Calendar file downloaded! Import it to your calendar app.');
+  });
+
+  /**
+   * Generate iCalendar (.ics) file content
+   * @param {Object} event - Event data
+   * @returns {string} ICS file content
+   */
+  function generateICS(event) {
+    const dtstart = event.date.replace(/-/g, '') + 'T' + event.time.replace(/:/g, '') + '00';
+    const dtstamp = new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+    
+    return `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Sports Psycho//Event//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:${Math.random().toString(36).substr(2, 9)}@sportspsycho.com
+DTSTAMP:${dtstamp}
+DTSTART:${dtstart}
+SUMMARY:${event.name}
+DESCRIPTION:${event.description}
+LOCATION:${event.location}
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+END:VCALENDAR`;
+  }
+
+  // Load event data from URL parameter or API
+  function loadEventData() {
+    const eventId = new URLSearchParams(window.location.search).get('id');
+    if (eventId) {
+      // In production, fetch event details from API
+      // fetch(`/api/events/${eventId}`)...
+    }
+  }
+
+  loadEventData();
+</script>
 
 </body>
 </html>

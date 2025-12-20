@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sports Psycho • Create Tournament</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --psycho-purple: #5821a6;
+      --psycho-deep: #2a0b58;
+      --psycho-blue: #4ad2ff;
+      --psycho-yellow: #ffdd57;
+    }
+
+    body {
+      background: var(--psycho-purple);
+      background-image: url("https://www.transparenttextures.com/patterns/pw-maze-black.png");
+      font-family: 'Inter', sans-serif;
+      color: white;
+      padding-bottom: 100px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.14);
+      border: 2px solid rgba(255, 255, 255, 0.18);
+      border-radius: 24px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.35);
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="px-4 py-4 flex items-center justify-between bg-[var(--psycho-deep)] shadow-xl sticky top-0 z-50">
+  <a href="create-event.html" class="text-3xl text-[var(--psycho-yellow)]">←</a>
+  <h1 class="text-xl font-extrabold">Create Tournament</h1>
+  <div class="w-8"></div>
+</header>
+
+<!-- FORM CARD -->
+<section class="px-4 mt-6">
+  <div class="card p-6">
+
+    <!-- Tournament Name -->
+    <div class="mb-5">
+      <label class="text-sm font-semibold mb-1 block">Tournament Name</label>
+      <input 
+        id="tournament-name"
+        type="text"
+        placeholder="Summer Championship 2024"
+        class="w-full px-4 py-3 text-black rounded-xl font-semibold shadow focus:outline-none"
+        required
+      >
+    </div>
+
+    <!-- Bracket Type -->
+    <div class="mb-5">
+      <label class="text-sm font-semibold mb-2 block">Bracket Type</label>
+      <select 
+        id="bracket-type"
+        class="w-full px-4 py-3 text-black rounded-xl font-semibold shadow focus:outline-none"
+      >
+        <option value="single-elimination">Single Elimination</option>
+        <option value="double-elimination">Double Elimination</option>
+        <option value="round-robin">Round Robin</option>
+      </select>
+    </div>
+
+    <!-- Number of Participants -->
+    <div class="mb-5">
+      <label class="text-sm font-semibold mb-1 block">Number of Participants/Teams</label>
+      <select 
+        id="tournament-participants"
+        class="w-full px-4 py-3 text-black rounded-xl font-semibold shadow focus:outline-none"
+      >
+        <option value="4">4</option>
+        <option value="8">8</option>
+        <option value="16">16</option>
+        <option value="32">32</option>
+      </select>
+    </div>
+
+    <!-- Points System -->
+    <div class="mb-5">
+      <label class="text-sm font-semibold mb-2 block">Points System</label>
+      <div class="space-y-3">
+        <div class="flex items-center justify-between">
+          <label class="text-sm">Win Points</label>
+          <input 
+            id="points-win"
+            type="number"
+            value="3"
+            min="1"
+            class="w-20 px-3 py-2 text-black rounded-xl font-semibold shadow focus:outline-none"
+          >
+        </div>
+        <div class="flex items-center justify-between">
+          <label class="text-sm">Loss Points</label>
+          <input 
+            id="points-loss"
+            type="number"
+            value="0"
+            min="0"
+            class="w-20 px-3 py-2 text-black rounded-xl font-semibold shadow focus:outline-none"
+          >
+        </div>
+        <div class="flex items-center justify-between">
+          <label class="text-sm">Draw Points</label>
+          <input 
+            id="points-draw"
+            type="number"
+            value="1"
+            min="0"
+            class="w-20 px-3 py-2 text-black rounded-xl font-semibold shadow focus:outline-none"
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Match Duration -->
+    <div class="mb-5">
+      <label class="text-sm font-semibold mb-1 block">Match Duration (minutes)</label>
+      <input 
+        id="match-duration"
+        type="number"
+        placeholder="60"
+        value="60"
+        min="10"
+        class="w-full px-4 py-3 text-black rounded-xl font-semibold shadow focus:outline-none"
+      >
+    </div>
+
+    <!-- Start Date -->
+    <div class="mb-5">
+      <label class="text-sm font-semibold mb-1 block">Tournament Start Date</label>
+      <input 
+        id="tournament-start-date"
+        type="date"
+        class="w-full px-4 py-3 text-black rounded-xl font-semibold shadow focus:outline-none"
+        required
+      >
+    </div>
+
+    <!-- Prize Pool (Optional) -->
+    <div class="mb-5">
+      <label class="text-sm font-semibold mb-1 block">Prize Pool (Optional)</label>
+      <input 
+        id="prize-pool"
+        type="text"
+        placeholder="$500 total prizes"
+        class="w-full px-4 py-3 text-black rounded-xl font-semibold shadow focus:outline-none"
+      >
+    </div>
+
+    <!-- Tournament Rules -->
+    <div class="mb-5">
+      <label class="text-sm font-semibold mb-1 block">Tournament Rules</label>
+      <textarea 
+        id="tournament-rules"
+        rows="4"
+        placeholder="Describe tournament rules, scoring system, tie-breakers..."
+        class="w-full px-4 py-3 text-black rounded-xl font-semibold shadow focus:outline-none"
+      ></textarea>
+    </div>
+
+    <!-- Create Button -->
+    <button 
+      id="create-tournament-btn"
+      class="w-full bg-[var(--psycho-blue)] text-black py-3 rounded-xl text-lg font-bold shadow-xl hover:scale-[1.02] transition"
+    >
+      Create Tournament
+    </button>
+
+  </div>
+</section>
+
+<!-- JavaScript for Tournament Creation -->
+<script>
+  /**
+   * Sports Psycho - Tournament Creation Module
+   * Handles tournament setup with bracket generation and points tracking
+   * Supports multiple bracket types: Single/Double Elimination, Round Robin
+   * Developer: Modular architecture for bracket management and winner determination
+   */
+
+  document.getElementById('create-tournament-btn').addEventListener('click', async function(e) {
+    e.preventDefault();
+    
+    // Collect tournament data
+    const tournamentData = {
+      name: document.getElementById('tournament-name').value,
+      bracketType: document.getElementById('bracket-type').value,
+      participants: parseInt(document.getElementById('tournament-participants').value),
+      pointsSystem: {
+        win: parseInt(document.getElementById('points-win').value),
+        loss: parseInt(document.getElementById('points-loss').value),
+        draw: parseInt(document.getElementById('points-draw').value)
+      },
+      matchDuration: parseInt(document.getElementById('match-duration').value),
+      startDate: document.getElementById('tournament-start-date').value,
+      prizePool: document.getElementById('prize-pool').value,
+      rules: document.getElementById('tournament-rules').value,
+      createdAt: new Date().toISOString(),
+      organizerId: 'current-user-id', // Replace with actual user ID
+      status: 'pending', // pending, active, completed
+      bracket: null, // Will be generated
+      matches: [],
+      standings: []
+    };
+
+    // Validation
+    if (!tournamentData.name || !tournamentData.startDate) {
+      alert('Please fill in all required fields');
+      return;
+    }
+
+    // Check if start date is in the future
+    if (new Date(tournamentData.startDate) < new Date()) {
+      alert('Tournament start date must be in the future');
+      return;
+    }
+
+    // Generate bracket structure
+    tournamentData.bracket = generateBracket(tournamentData.bracketType, tournamentData.participants);
+
+    try {
+      // API call to create tournament
+      const response = await fetch('/api/tournaments/create', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + localStorage.getItem('authToken')
+        },
+        body: JSON.stringify(tournamentData)
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        alert('Tournament created successfully!');
+        window.location.href = `tournament.html?id=${result.tournamentId}`;
+      } else {
+        const error = await response.json();
+        alert('Error creating tournament: ' + (error.message || 'Unknown error'));
+      }
+    } catch (error) {
+      // For demo purposes, store in localStorage
+      console.log('Creating tournament with data:', tournamentData);
+      
+      const tournaments = JSON.parse(localStorage.getItem('tournaments') || '[]');
+      tournamentData.id = 'tournament-' + Date.now();
+      tournaments.push(tournamentData);
+      localStorage.setItem('tournaments', JSON.stringify(tournaments));
+      
+      alert('Tournament created successfully! (Demo mode)');
+      window.location.href = 'tournament.html';
+    }
+  });
+
+  /**
+   * Generate bracket structure based on type
+   * @param {string} type - Bracket type (single-elimination, double-elimination, round-robin)
+   * @param {number} numParticipants - Number of participants
+   * @returns {Object} Bracket structure
+   */
+  function generateBracket(type, numParticipants) {
+    const bracket = {
+      type: type,
+      rounds: [],
+      totalParticipants: numParticipants
+    };
+
+    switch (type) {
+      case 'single-elimination':
+        bracket.rounds = generateSingleEliminationRounds(numParticipants);
+        break;
+      case 'double-elimination':
+        bracket.rounds = generateDoubleEliminationRounds(numParticipants);
+        break;
+      case 'round-robin':
+        bracket.rounds = generateRoundRobinRounds(numParticipants);
+        break;
+    }
+
+    return bracket;
+  }
+
+  /**
+   * Generate single elimination bracket rounds
+   * @param {number} numParticipants - Number of participants
+   * @returns {Array} Array of rounds with matches
+   */
+  function generateSingleEliminationRounds(numParticipants) {
+    const rounds = [];
+    let currentRound = 1;
+    let matchesInRound = numParticipants / 2;
+
+    while (matchesInRound >= 1) {
+      const roundMatches = [];
+      for (let i = 0; i < matchesInRound; i++) {
+        roundMatches.push({
+          matchId: `R${currentRound}M${i + 1}`,
+          participant1: null,
+          participant2: null,
+          winner: null,
+          score: null,
+          status: 'pending'
+        });
+      }
+      rounds.push({
+        roundNumber: currentRound,
+        roundName: matchesInRound === 1 ? 'Finals' : matchesInRound === 2 ? 'Semi-Finals' : `Round ${currentRound}`,
+        matches: roundMatches
+      });
+      matchesInRound = matchesInRound / 2;
+      currentRound++;
+    }
+
+    return rounds;
+  }
+
+  /**
+   * Generate double elimination bracket rounds
+   * @param {number} numParticipants - Number of participants
+   * @returns {Array} Array of rounds including winner's and loser's brackets
+   */
+  function generateDoubleEliminationRounds(numParticipants) {
+    // Winner's bracket
+    const winnersRounds = generateSingleEliminationRounds(numParticipants);
+    
+    // Loser's bracket (simplified)
+    const losersRounds = generateSingleEliminationRounds(numParticipants / 2);
+    
+    return {
+      winners: winnersRounds,
+      losers: losersRounds,
+      grandFinals: {
+        matchId: 'GF',
+        participant1: null,
+        participant2: null,
+        winner: null,
+        score: null,
+        status: 'pending'
+      }
+    };
+  }
+
+  /**
+   * Generate round robin schedule
+   * @param {number} numParticipants - Number of participants
+   * @returns {Array} Array of rounds with all vs all matches
+   */
+  function generateRoundRobinRounds(numParticipants) {
+    const rounds = [];
+    const matches = [];
+    
+    // Generate all possible matches (each team plays each other once)
+    for (let i = 1; i <= numParticipants; i++) {
+      for (let j = i + 1; j <= numParticipants; j++) {
+        matches.push({
+          matchId: `P${i}vsP${j}`,
+          participant1: `Participant ${i}`,
+          participant2: `Participant ${j}`,
+          winner: null,
+          score: null,
+          points: { p1: 0, p2: 0 },
+          status: 'pending'
+        });
+      }
+    }
+
+    // Distribute matches across rounds
+    const matchesPerRound = Math.floor(numParticipants / 2);
+    let roundNum = 1;
+    for (let i = 0; i < matches.length; i += matchesPerRound) {
+      rounds.push({
+        roundNumber: roundNum++,
+        roundName: `Round ${roundNum - 1}`,
+        matches: matches.slice(i, i + matchesPerRound)
+      });
+    }
+
+    return rounds;
+  }
+
+  // Set minimum date to today
+  document.getElementById('tournament-start-date').min = new Date().toISOString().split('T')[0];
+</script>
+
+<!-- FOOTER NAV -->
+<nav class="fixed bottom-0 left-0 w-full bg-[var(--psycho-deep)] py-3 shadow-2xl border-t border-white/20">
+  <div class="flex justify-around text-xl">
+    <a href="dashboard.html" class="opacity-80 hover:opacity-100">🏠</a>
+    <a href="club.html" class="opacity-80 hover:opacity-100">⛳</a>
+    <a href="calendar.html" class="opacity-80 hover:opacity-100">📅</a>
+    <a href="search.html" class="opacity-80 hover:opacity-100">🔍</a>
+    <a href="profile.html" class="opacity-80 hover:opacity-100">👤</a>
+  </div>
+</nav>
+
+</body>
+</html>

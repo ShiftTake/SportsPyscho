@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sports Psycho • Create Event</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --psycho-purple: #5821a6;
+      --psycho-deep: #2a0b58;
+      --psycho-blue: #4ad2ff;
+      --psycho-yellow: #ffdd57;
+    }
+
+    body {
+      background: var(--psycho-purple);
+      background-image: url("https://www.transparenttextures.com/patterns/pw-maze-black.png");
+      font-family: 'Inter', sans-serif;
+      color: white;
+      padding-bottom: 100px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.14);
+      border: 2px solid rgba(255, 255, 255, 0.18);
+      border-radius: 24px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.35);
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="px-4 py-4 flex items-center justify-between bg-[var(--psycho-deep)] shadow-xl sticky top-0 z-50">
+  <a href="club.html" class="text-3xl text-[var(--psycho-yellow)]">←</a>
+  <h1 class="text-xl font-extrabold">Create Event</h1>
+  <div class="w-8"></div>
+</header>
+
+<!-- FORM CARD -->
+<section class="px-4 mt-6">
+  <div class="card p-6">
+
+    <!-- Event Name -->
+    <div class="mb-5">
+      <label class="text-sm font-semibold mb-1 block">Event Name</label>
+      <input 
+        id="event-name"
+        type="text"
+        placeholder="Pickleball Double Round"
+        class="w-full px-4 py-3 text-black rounded-xl font-semibold shadow focus:outline-none"
+        required
+      >
+    </div>
+
+    <!-- Club Selection -->
+    <div class="mb-5">
+      <label class="text-sm font-semibold mb-1 block">Select Club</label>
+      <select 
+        id="event-club"
+        class="w-full px-4 py-3 text-black rounded-xl font-semibold shadow focus:outline-none"
+        required
+      >
+        <option value="">Choose a club</option>
+        <option value="club1">Pickleball Maniacs</option>
+        <option value="club2">Weekend Golf Crew</option>
+        <option value="club3">Tennis Addicts</option>
+      </select>
+    </div>
+
+    <!-- Date -->
+    <div class="mb-5">
+      <label class="text-sm font-semibold mb-1 block">Event Date</label>
+      <input 
+        id="event-date"
+        type="date"
+        class="w-full px-4 py-3 text-black rounded-xl font-semibold shadow focus:outline-none"
+        required
+      >
+    </div>
+
+    <!-- Time -->
+    <div class="mb-5">
+      <label class="text-sm font-semibold mb-1 block">Event Time</label>
+      <input 
+        id="event-time"
+        type="time"
+        class="w-full px-4 py-3 text-black rounded-xl font-semibold shadow focus:outline-none"
+        required
+      >
+    </div>
+
+    <!-- Location -->
+    <div class="mb-5">
+      <label class="text-sm font-semibold mb-1 block">Location</label>
+      <input 
+        id="event-location"
+        type="text"
+        placeholder="Sports Plex Court 4"
+        class="w-full px-4 py-3 text-black rounded-xl font-semibold shadow focus:outline-none"
+        required
+      >
+      <p class="opacity-70 text-xs mt-1">Venue or court number</p>
+    </div>
+
+    <!-- Number of Participants -->
+    <div class="mb-5">
+      <label class="text-sm font-semibold mb-1 block">Max Participants</label>
+      <input 
+        id="event-participants"
+        type="number"
+        placeholder="12"
+        min="2"
+        max="100"
+        class="w-full px-4 py-3 text-black rounded-xl font-semibold shadow focus:outline-none"
+        required
+      >
+    </div>
+
+    <!-- Event Type -->
+    <div class="mb-5">
+      <label class="text-sm font-semibold mb-2 block">Event Type</label>
+      <div class="flex items-center space-x-4">
+        <label class="flex items-center space-x-2">
+          <input type="radio" name="event-type" id="type-onetime" value="one-time" checked>
+          <span>One-Time Event</span>
+        </label>
+        <label class="flex items-center space-x-2">
+          <input type="radio" name="event-type" id="type-tournament" value="tournament">
+          <span>Tournament</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Calendar Sync Option -->
+    <div class="mb-5">
+      <label class="flex items-center space-x-3">
+        <input type="checkbox" id="calendar-sync" class="w-5 h-5">
+        <span class="text-sm font-semibold">Enable Calendar Sync</span>
+      </label>
+      <p class="opacity-70 text-xs mt-1 ml-8">Allow participants to add this event to their personal calendar</p>
+    </div>
+
+    <!-- RSVP Settings -->
+    <div class="mb-5">
+      <label class="flex items-center space-x-3">
+        <input type="checkbox" id="rsvp-required" class="w-5 h-5" checked>
+        <span class="text-sm font-semibold">RSVP Required</span>
+      </label>
+      <p class="opacity-70 text-xs mt-1 ml-8">Participants must confirm attendance</p>
+    </div>
+
+    <!-- Description -->
+    <div class="mb-5">
+      <label class="text-sm font-semibold mb-1 block">Event Description</label>
+      <textarea 
+        id="event-description"
+        rows="4"
+        placeholder="Describe the event, skill levels, rules, or special requirements..."
+        class="w-full px-4 py-3 text-black rounded-xl font-semibold shadow focus:outline-none"
+      ></textarea>
+    </div>
+
+    <!-- Create Button -->
+    <button 
+      id="create-event-btn"
+      class="w-full bg-[var(--psycho-blue)] text-black py-3 rounded-xl text-lg font-bold shadow-xl hover:scale-[1.02] transition"
+    >
+      Create Event
+    </button>
+
+  </div>
+</section>
+
+<!-- JavaScript for Event Creation and API Integration -->
+<script>
+  /**
+   * Sports Psycho - Event Creation Module
+   * Handles event scheduling, validation, and API integration
+   * Supports one-time events and tournament creation
+   * Developer: Modular design for easy backend integration
+   */
+
+  document.getElementById('create-event-btn').addEventListener('click', async function(e) {
+    e.preventDefault();
+    
+    // Collect form data
+    const eventData = {
+      name: document.getElementById('event-name').value,
+      clubId: document.getElementById('event-club').value,
+      date: document.getElementById('event-date').value,
+      time: document.getElementById('event-time').value,
+      location: document.getElementById('event-location').value,
+      maxParticipants: parseInt(document.getElementById('event-participants').value),
+      type: document.querySelector('input[name="event-type"]:checked').value,
+      description: document.getElementById('event-description').value,
+      calendarSync: document.getElementById('calendar-sync').checked,
+      rsvpRequired: document.getElementById('rsvp-required').checked,
+      createdAt: new Date().toISOString(),
+      hostId: 'current-user-id', // Replace with actual user ID from auth
+      participants: [],
+      status: 'upcoming'
+    };
+
+    // Validation
+    if (!eventData.name || !eventData.clubId || !eventData.date || !eventData.time || !eventData.location) {
+      alert('Please fill in all required fields');
+      return;
+    }
+
+    if (eventData.maxParticipants < 2) {
+      alert('Minimum 2 participants required');
+      return;
+    }
+
+    // Check if date is in the future
+    const eventDateTime = new Date(eventData.date + 'T' + eventData.time);
+    if (eventDateTime < new Date()) {
+      alert('Event date and time must be in the future');
+      return;
+    }
+
+    try {
+      // API call to create event
+      // In production, replace with actual API endpoint
+      const response = await fetch('/api/events/create', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + localStorage.getItem('authToken')
+        },
+        body: JSON.stringify(eventData)
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        
+        // If tournament, redirect to tournament setup
+        if (eventData.type === 'tournament') {
+          window.location.href = `create-tournament.html?eventId=${result.eventId}`;
+        } else {
+          alert('Event created successfully!');
+          window.location.href = `event.html?id=${result.eventId}`;
+        }
+      } else {
+        const error = await response.json();
+        alert('Error creating event: ' + (error.message || 'Unknown error'));
+      }
+    } catch (error) {
+      // For demo purposes without backend, store in localStorage
+      console.log('Creating event with data:', eventData);
+      
+      // Store in localStorage for demo
+      const events = JSON.parse(localStorage.getItem('events') || '[]');
+      eventData.id = 'event-' + Date.now();
+      events.push(eventData);
+      localStorage.setItem('events', JSON.stringify(events));
+      
+      // Generate calendar file if sync is enabled
+      if (eventData.calendarSync) {
+        generateCalendarFile(eventData);
+      }
+      
+      alert('Event created successfully! (Demo mode - stored locally)');
+      
+      if (eventData.type === 'tournament') {
+        window.location.href = 'create-tournament.html';
+      } else {
+        window.location.href = 'event.html';
+      }
+    }
+  });
+
+  /**
+   * Generate an iCalendar file for calendar sync
+   * @param {Object} eventData - Event data object
+   */
+  function generateCalendarFile(eventData) {
+    const icsContent = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Sports Psycho//Event//EN
+BEGIN:VEVENT
+UID:${eventData.id}@sportspsycho.com
+DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').split('.')[0]}Z
+DTSTART:${(eventData.date + 'T' + eventData.time).replace(/[-:]/g, '')}
+SUMMARY:${eventData.name}
+DESCRIPTION:${eventData.description}
+LOCATION:${eventData.location}
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR`;
+
+    console.log('Calendar file generated:', icsContent);
+    // In production, this would be downloadable or sent to calendar APIs
+  }
+
+  // Set minimum date to today
+  document.getElementById('event-date').min = new Date().toISOString().split('T')[0];
+
+  // Show/hide tournament-specific options
+  document.querySelectorAll('input[name="event-type"]').forEach(radio => {
+    radio.addEventListener('change', function() {
+      if (this.value === 'tournament') {
+        console.log('Tournament mode selected - will redirect to tournament setup after creation');
+      }
+    });
+  });
+</script>
+
+<!-- FOOTER NAV -->
+<nav class="fixed bottom-0 left-0 w-full bg-[var(--psycho-deep)] py-3 shadow-2xl border-t border-white/20">
+  <div class="flex justify-around text-xl">
+    <a href="dashboard.html" class="opacity-80 hover:opacity-100">🏠</a>
+    <a href="club.html" class="opacity-80 hover:opacity-100">⛳</a>
+    <a href="calendar.html" class="opacity-80 hover:opacity-100">📅</a>
+    <a href="search.html" class="opacity-80 hover:opacity-100">🔍</a>
+    <a href="profile.html" class="opacity-80 hover:opacity-100">👤</a>
+  </div>
+</nav>
+
+</body>
+</html>
