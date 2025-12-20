@@ -82,12 +82,18 @@
   <!-- EVENTS TAB -->
   <div id="events-tab" class="mt-6 space-y-4">
 
+    <!-- Create Event Button -->
+    <button onclick="window.location.href='create-event.html'" class="w-full bg-[var(--psycho-blue)] text-black font-bold py-3 rounded-xl shadow-xl hover:scale-[1.02] transition flex items-center justify-center space-x-2">
+      <span class="text-xl">➕</span>
+      <span>Create New Event</span>
+    </button>
+
     <div class="card p-4 flex justify-between items-center">
       <div>
         <p class="font-extrabold text-lg">Pickleball Double Round</p>
         <p class="text-sm opacity-80">Tuesday • 6 PM • Sports Plex</p>
       </div>
-      <button class="bg-[var(--psycho-blue)] text-black font-bold px-4 py-2 rounded-xl">
+      <button class="bg-[var(--psycho-blue)] text-black font-bold px-4 py-2 rounded-xl" onclick="window.location.href='event.html'">
         View
       </button>
     </div>
@@ -97,10 +103,16 @@
         <p class="font-extrabold text-lg">Beginner Mix-Up</p>
         <p class="text-sm opacity-80">Friday • 5 PM • Court 12</p>
       </div>
-      <button class="bg-[var(--psycho-blue)] text-black font-bold px-4 py-2 rounded-xl">
+      <button class="bg-[var(--psycho-blue)] text-black font-bold px-4 py-2 rounded-xl" onclick="window.location.href='event.html'">
         View
       </button>
     </div>
+
+    <!-- Create Tournament Button -->
+    <button onclick="window.location.href='create-tournament.html'" class="w-full bg-[var(--psycho-yellow)] text-black font-bold py-3 rounded-xl shadow-xl hover:scale-[1.02] transition flex items-center justify-center space-x-2 mt-4">
+      <span class="text-xl">🏆</span>
+      <span>Create Tournament</span>
+    </button>
 
   </div>
 
