@@ -8,6 +8,10 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet"/>
 
+  <!-- JavaScript modules -->
+  <script src="js/api-client.js"></script>
+  <script src="js/event-manager.js"></script>
+
   <style>
     :root {
       --psycho-purple: #5821a6;
@@ -149,6 +153,37 @@
     <a href="profile.html" class="opacity-80 hover:opacity-100">👤</a>
   </div>
 </nav>
+
+<script>
+  // Get event ID from URL and load dynamic content if available
+  const urlParams = new URLSearchParams(window.location.search);
+  const eventId = urlParams.get('id');
+
+  if (eventId && typeof eventManager !== 'undefined') {
+    // This would load real event data
+    // eventManager.loadEventDetails(eventId, 'event-content');
+  }
+
+  // Setup join/withdraw buttons
+  const joinBtn = document.querySelector('button:contains("Join Event")');
+  const withdrawBtn = document.querySelector('button:contains("Withdraw")');
+
+  if (joinBtn && typeof eventManager !== 'undefined') {
+    joinBtn.addEventListener('click', () => {
+      if (eventId) {
+        eventManager.joinEvent(eventId);
+      }
+    });
+  }
+
+  if (withdrawBtn && typeof eventManager !== 'undefined') {
+    withdrawBtn.addEventListener('click', () => {
+      if (eventId) {
+        eventManager.leaveEvent(eventId);
+      }
+    });
+  }
+</script>
 
 </body>
 </html>

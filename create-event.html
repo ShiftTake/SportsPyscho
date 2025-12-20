@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sports Psycho • Create Club</title>
+  <title>Sports Psycho • Create Event</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet"/>
-  
+
   <!-- JavaScript modules -->
   <script src="js/api-client.js"></script>
-  <script src="js/club-manager.js"></script>
+  <script src="js/event-manager.js"></script>
 
   <style>
     :root {
@@ -42,8 +42,8 @@
 
 <!-- HEADER -->
 <header class="px-4 py-4 flex items-center justify-between bg-[var(--psycho-deep)] shadow-xl sticky top-0 z-50">
-  <a href="dashboard.html" class="text-3xl text-[var(--psycho-yellow)]">←</a>
-  <h1 class="text-xl font-extrabold">Create a Club</h1>
+  <a href="club.html" class="text-3xl text-[var(--psycho-yellow)]">←</a>
+  <h1 class="text-xl font-extrabold">Create Event</h1>
   <div class="w-8"></div>
 </header>
 
@@ -51,127 +51,107 @@
 <section class="px-4 mt-6">
   <div class="card p-6">
 
-    <form id="create-club-form">
-      <!-- Club Name -->
+    <form id="create-event-form">
+      <!-- Hidden club ID (would be passed from club page) -->
+      <input type="hidden" name="clubId" id="clubId" value="">
+
+      <!-- Event Name -->
       <div class="mb-5">
-        <label class="text-sm font-semibold mb-1 block">Club Name</label>
+        <label class="text-sm font-semibold mb-1 block">Event Name</label>
         <input 
           type="text"
           name="name"
-          placeholder="Pickleball Maniacs"
+          placeholder="Pickleball Double Round"
           required
           class="w-full px-4 py-3 text-black rounded-xl font-semibold shadow focus:outline-none"
         >
       </div>
 
-      <!-- Sport Selector -->
+      <!-- Date & Time -->
       <div class="mb-5">
-        <label class="text-sm font-semibold mb-1 block">Sport</label>
-        <select 
-          name="sport"
+        <label class="text-sm font-semibold mb-1 block">Date & Time</label>
+        <input 
+          type="datetime-local"
+          name="dateTime"
           required
           class="w-full px-4 py-3 text-black rounded-xl font-semibold shadow focus:outline-none"
         >
-          <option value="">Select a sport...</option>
-          <option value="Pickleball">Pickleball</option>
-          <option value="Golf">Golf</option>
-          <option value="Tennis">Tennis</option>
-          <option value="Basketball">Basketball</option>
-          <option value="Football">Football</option>
-          <option value="Flag Football">Flag Football</option>
-          <option value="Soccer">Soccer</option>
-          <option value="Volleyball">Volleyball</option>
+      </div>
+
+      <!-- Location -->
+      <div class="mb-5">
+        <label class="text-sm font-semibold mb-1 block">Location</label>
+        <input 
+          type="text"
+          name="location"
+          placeholder="Sports Plex Court 4"
+          required
+          class="w-full px-4 py-3 text-black rounded-xl font-semibold shadow focus:outline-none"
+        >
+        <p class="opacity-70 text-xs mt-1">Enter the venue name and specific location</p>
+      </div>
+
+      <!-- Max Participants -->
+      <div class="mb-5">
+        <label class="text-sm font-semibold mb-1 block">Maximum Participants</label>
+        <input 
+          type="number"
+          name="maxParticipants"
+          placeholder="12"
+          min="1"
+          required
+          class="w-full px-4 py-3 text-black rounded-xl font-semibold shadow focus:outline-none"
+        >
+      </div>
+
+      <!-- Recurrence Options -->
+      <div class="mb-5">
+        <label class="text-sm font-semibold mb-1 block">Recurrence</label>
+        <select 
+          name="recurrence"
+          class="w-full px-4 py-3 text-black rounded-xl font-semibold shadow focus:outline-none"
+        >
+          <option value="one-time">One-time event</option>
+          <option value="daily">Daily</option>
+          <option value="weekly">Weekly</option>
+          <option value="monthly">Monthly</option>
+          <option value="tournament">Tournament style</option>
         </select>
       </div>
 
-      <!-- State -->
-      <div class="mb-5">
-        <label class="text-sm font-semibold mb-1 block">State</label>
+      <!-- Recurrence End Date (shown when recurrence is not one-time) -->
+      <div id="recurrence-options" class="mb-5 hidden">
+        <label class="text-sm font-semibold mb-1 block">Recurrence End Date</label>
         <input 
-          type="text"
-          name="state"
-          placeholder="TX"
-          required
-          maxlength="2"
+          type="date"
+          name="recurrenceEndDate"
           class="w-full px-4 py-3 text-black rounded-xl font-semibold shadow focus:outline-none"
         >
-        <p class="opacity-70 text-xs mt-1">Enter 2-letter state code (e.g., TX, CA, NY)</p>
-      </div>
-
-      <!-- City -->
-      <div class="mb-5">
-        <label class="text-sm font-semibold mb-1 block">City</label>
-        <input 
-          type="text"
-          name="city"
-          placeholder="Austin"
-          required
-          class="w-full px-4 py-3 text-black rounded-xl font-semibold shadow focus:outline-none"
-        >
-      </div>
-
-      <!-- Public / Private -->
-      <div class="mb-5">
-        <label class="text-sm font-semibold mb-2 block">Privacy</label>
-
-        <div class="flex items-center space-x-4">
-          <label class="flex items-center space-x-2 cursor-pointer">
-            <input type="radio" name="privacy" value="public" checked>
-            <span>Public</span>
-          </label>
-
-          <label class="flex items-center space-x-2 cursor-pointer">
-            <input type="radio" name="privacy" value="private">
-            <span>Private</span>
-          </label>
-        </div>
-        <p class="opacity-70 text-xs mt-1">Public clubs are visible to everyone. Private clubs require invitations.</p>
+        <p class="opacity-70 text-xs mt-1">When should the recurring events stop?</p>
       </div>
 
       <!-- Description -->
       <div class="mb-5">
-        <label class="text-sm font-semibold mb-1 block">Description</label>
+        <label class="text-sm font-semibold mb-1 block">Description (Optional)</label>
         <textarea 
           name="description"
           rows="4"
-          placeholder="Describe your club, skill levels, rules, or weekly events..."
+          placeholder="A fun competitive pickleball event open to all skill levels..."
           class="w-full px-4 py-3 text-black rounded-xl font-semibold shadow focus:outline-none"
         ></textarea>
       </div>
-
-      <!-- Member Invites -->
-      <div class="mb-5">
-        <label class="text-sm font-semibold mb-1 block">Invite Members (Optional)</label>
-        <input 
-          type="text"
-          name="inviteUserIds"
-          placeholder="Enter user IDs separated by commas"
-          class="w-full px-4 py-3 text-black rounded-xl font-semibold shadow focus:outline-none"
-        >
-        <p class="opacity-70 text-xs mt-1">Enter user IDs separated by commas (e.g., user123, user456)</p>
-      </div>
-
-      <!-- Upload Image (Hidden field for future implementation) -->
-      <input type="hidden" name="imageUrl" value="">
 
       <!-- Create Button -->
       <button 
         type="submit"
         class="w-full bg-[var(--psycho-blue)] text-black py-3 rounded-xl text-lg font-bold shadow-xl hover:scale-[1.02] transition"
       >
-        Create Club
+        Create Event
       </button>
     </form>
 
   </div>
 </section>
-
-<script>
-  // Initialize the form with club manager
-  if (typeof clubManager !== 'undefined') {
-    clubManager.initializeCreateForm('create-club-form');
-  }
-</script>
 
 <!-- FOOTER NAV -->
 <nav class="fixed bottom-0 left-0 w-full bg-[var(--psycho-deep)] py-3 shadow-2xl border-t border-white/20">
@@ -183,6 +163,20 @@
     <a href="profile.html" class="opacity-80 hover:opacity-100">👤</a>
   </div>
 </nav>
+
+<script>
+  // Get club ID from URL params if available
+  const urlParams = new URLSearchParams(window.location.search);
+  const clubId = urlParams.get('clubId');
+  if (clubId) {
+    document.getElementById('clubId').value = clubId;
+  }
+
+  // Initialize the form with event manager
+  if (typeof eventManager !== 'undefined') {
+    eventManager.initializeCreateForm('create-event-form');
+  }
+</script>
 
 </body>
 </html>
