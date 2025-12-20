@@ -256,7 +256,10 @@ router.get('/search', async (req, res) => {
   try {
     const { sport, state, city, visibility, searchTerm } = req.query;
 
-    let filteredClubs = clubs.filter(club => club.visibility === 'public' || visibility !== 'private');
+    // Start with public clubs only, unless explicitly searching for private clubs
+    let filteredClubs = clubs.filter(club => 
+      visibility === 'private' ? club.visibility === 'private' : club.visibility === 'public'
+    );
 
     if (sport) {
       filteredClubs = filteredClubs.filter(c => c.sport.toLowerCase() === sport.toLowerCase());

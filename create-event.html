@@ -288,7 +288,7 @@ PRODID:-//Sports Psycho//Event//EN
 BEGIN:VEVENT
 UID:${eventData.id}@sportspsycho.com
 DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').split('.')[0]}Z
-DTSTART:${(eventData.date + 'T' + eventData.time).replace(/[-:]/g, '')}
+DTSTART:${(eventData.date + 'T' + eventData.time).replace(/[-:]/g, '')}Z
 SUMMARY:${eventData.name}
 DESCRIPTION:${eventData.description}
 LOCATION:${eventData.location}

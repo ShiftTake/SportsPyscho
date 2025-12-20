@@ -445,6 +445,11 @@
         document.getElementById('tournament-info').textContent = 
           `${tournament.bracketType} • ${tournament.participants} Players`;
         document.getElementById('tournament-status').textContent = tournament.status;
+      } else {
+        // Handle tournament not found
+        console.warn('Tournament not found:', tournamentId);
+        document.getElementById('tournament-name').textContent = 'Tournament Not Found';
+        document.getElementById('tournament-info').textContent = 'The requested tournament does not exist.';
       }
     }
   }

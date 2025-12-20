@@ -265,8 +265,10 @@
     const dtstart = eventDate.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
     const dtstamp = new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
     
-    // Generate unique UID
-    const uid = Math.random().toString(36).substr(2, 9);
+    // Generate UID using crypto.getRandomValues for security
+    const array = new Uint32Array(2);
+    crypto.getRandomValues(array);
+    const uid = array[0].toString(36) + array[1].toString(36);
     
     return `BEGIN:VCALENDAR
 VERSION:2.0
