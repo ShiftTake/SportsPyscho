@@ -1,0 +1,34 @@
+{
+  "name": "sportssicko-api",
+  "version": "1.0.0",
+  "description": "Sports Sicko API - Backend for club, event, and tournament management",
+  "main": "api/server.js",
+  "scripts": {
+    "start": "node api/server.js",
+    "dev": "nodemon api/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sports",
+    "clubs",
+    "events",
+    "tournaments",
+    "api",
+    "rest"
+  ],
+  "author": "Sports Sicko Development Team",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "jsonwebtoken": "^9.0.2",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

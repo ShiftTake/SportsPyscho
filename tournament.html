@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sports Sicko • Tournament</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --sicko-purple: #4c1d95;
+      --sicko-dark: #1e1b4b;
+      --sicko-blue: #0ea5e9;
+      --sicko-neon: #a8ff35;
+    }
+
+    body {
+      background: var(--sicko-purple);
+      background-image: url("https://www.transparenttextures.com/patterns/pw-maze-black.png");
+      color: white;
+      font-family: 'Inter', sans-serif;
+      padding-bottom: 90px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.14);
+      border: 2px solid rgba(255, 255, 255, 0.18);
+      border-radius: 22px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    }
+
+    .bracket-match {
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      padding: 12px;
+      margin: 8px 0;
+    }
+
+    .winner {
+      background: rgba(74, 210, 255, 0.2);
+      border-color: var(--sicko-blue);
+    }
+
+    .tab-active {
+      border-bottom: 3px solid var(--sicko-neon);
+      font-weight: 900;
+      color: var(--sicko-neon);
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="px-4 py-4 flex items-center justify-between bg-[var(--sicko-dark)] shadow-xl sticky top-0 z-50">
+  <a href="club.html" class="text-3xl text-[var(--sicko-neon)]">←</a>
+  <h1 class="text-xl font-extrabold tracking-wide">Tournament</h1>
+  <div class="w-8"></div>
+</header>
+
+<!-- TOURNAMENT HEADER -->
+<section class="px-4 mt-4">
+  <div class="card p-5">
+    <h2 class="text-3xl font-extrabold" id="tournament-name">Summer Championship 2024</h2>
+    <p class="opacity-80 text-sm mt-1" id="tournament-info">Single Elimination • 8 Players</p>
+    
+    <div class="mt-4 flex space-x-3">
+      <span class="bg-green-400 text-black px-3 py-1 rounded-lg font-bold text-sm" id="tournament-status">Active</span>
+      <span class="opacity-80 text-sm">Started: Dec 20, 2024</span>
+    </div>
+  </div>
+</section>
+
+<!-- TABS -->
+<section class="mt-6">
+  <div class="flex justify-around text-lg font-bold px-4 pb-3 border-b border-white/30">
+    <button id="tab-bracket" class="tab-active">Bracket</button>
+    <button id="tab-standings" class="opacity-70 hover:opacity-100">Standings</button>
+    <button id="tab-matches" class="opacity-70 hover:opacity-100">Matches</button>
+  </div>
+</section>
+
+<!-- TAB CONTENT -->
+<div id="content-container" class="px-4 pb-24">
+
+  <!-- BRACKET TAB -->
+  <div id="bracket-tab" class="mt-6">
+    
+    <!-- Round 1 -->
+    <div class="mb-8">
+      <h3 class="text-xl font-extrabold mb-3">Round 1 - Quarter Finals</h3>
+      <div class="space-y-3">
+        
+        <div class="bracket-match winner">
+          <div class="flex justify-between items-center mb-2">
+            <span class="font-bold">Alex Johnson</span>
+            <span class="text-lg font-extrabold text-[var(--sicko-blue)]">11</span>
+          </div>
+          <div class="flex justify-between items-center opacity-60">
+            <span>Mike Chen</span>
+            <span>8</span>
+          </div>
+        </div>
+
+        <div class="bracket-match winner">
+          <div class="flex justify-between items-center mb-2">
+            <span class="font-bold">Sarah Williams</span>
+            <span class="text-lg font-extrabold text-[var(--sicko-blue)]">11</span>
+          </div>
+          <div class="flex justify-between items-center opacity-60">
+            <span>Tom Davis</span>
+            <span>6</span>
+          </div>
+        </div>
+
+        <div class="bracket-match winner">
+          <div class="flex justify-between items-center mb-2">
+            <span class="font-bold">Jessica Lee</span>
+            <span class="text-lg font-extrabold text-[var(--sicko-blue)]">11</span>
+          </div>
+          <div class="flex justify-between items-center opacity-60">
+            <span>Kevin Park</span>
+            <span>9</span>
+          </div>
+        </div>
+
+        <div class="bracket-match winner">
+          <div class="flex justify-between items-center mb-2">
+            <span class="font-bold">David Brown</span>
+            <span class="text-lg font-extrabold text-[var(--sicko-blue)]">11</span>
+          </div>
+          <div class="flex justify-between items-center opacity-60">
+            <span>Lisa Martinez</span>
+            <span>7</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Round 2 -->
+    <div class="mb-8">
+      <h3 class="text-xl font-extrabold mb-3">Round 2 - Semi Finals</h3>
+      <div class="space-y-3">
+        
+        <div class="bracket-match winner">
+          <div class="flex justify-between items-center mb-2">
+            <span class="font-bold">Alex Johnson</span>
+            <span class="text-lg font-extrabold text-[var(--sicko-blue)]">11</span>
+          </div>
+          <div class="flex justify-between items-center opacity-60">
+            <span>Sarah Williams</span>
+            <span>9</span>
+          </div>
+        </div>
+
+        <div class="bracket-match">
+          <div class="flex justify-between items-center mb-2">
+            <span>Jessica Lee</span>
+            <span class="opacity-50">vs</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span>David Brown</span>
+            <span class="text-sm opacity-70">Pending</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Finals -->
+    <div class="mb-8">
+      <h3 class="text-xl font-extrabold mb-3">🏆 Finals</h3>
+      <div class="bracket-match">
+        <div class="flex justify-between items-center mb-2">
+          <span class="font-bold">Alex Johnson</span>
+          <span class="opacity-50">vs</span>
+        </div>
+        <div class="flex justify-between items-center">
+          <span class="opacity-70">TBD</span>
+          <span class="text-sm opacity-70">Pending</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- STANDINGS TAB -->
+  <div id="standings-tab" class="mt-6 space-y-3 hidden">
+    
+    <div class="card p-4 flex items-center justify-between">
+      <div class="flex items-center space-x-4">
+        <span class="text-2xl font-extrabold text-[var(--sicko-neon)]">1</span>
+        <div>
+          <p class="font-bold text-lg">Alex Johnson</p>
+          <p class="text-sm opacity-80">2 Wins • 0 Losses</p>
+        </div>
+      </div>
+      <div class="text-right">
+        <p class="text-2xl font-extrabold text-[var(--sicko-blue)]">6</p>
+        <p class="text-xs opacity-70">Points</p>
+      </div>
+    </div>
+
+    <div class="card p-4 flex items-center justify-between">
+      <div class="flex items-center space-x-4">
+        <span class="text-2xl font-extrabold">2</span>
+        <div>
+          <p class="font-bold text-lg">Jessica Lee</p>
+          <p class="text-sm opacity-80">1 Win • 0 Losses</p>
+        </div>
+      </div>
+      <div class="text-right">
+        <p class="text-2xl font-extrabold text-[var(--sicko-blue)]">3</p>
+        <p class="text-xs opacity-70">Points</p>
+      </div>
+    </div>
+
+    <div class="card p-4 flex items-center justify-between">
+      <div class="flex items-center space-x-4">
+        <span class="text-2xl font-extrabold">3</span>
+        <div>
+          <p class="font-bold text-lg">David Brown</p>
+          <p class="text-sm opacity-80">1 Win • 0 Losses</p>
+        </div>
+      </div>
+      <div class="text-right">
+        <p class="text-2xl font-extrabold text-[var(--sicko-blue)]">3</p>
+        <p class="text-xs opacity-70">Points</p>
+      </div>
+    </div>
+
+    <div class="card p-4 flex items-center justify-between">
+      <div class="flex items-center space-x-4">
+        <span class="text-2xl font-extrabold">4</span>
+        <div>
+          <p class="font-bold text-lg">Sarah Williams</p>
+          <p class="text-sm opacity-80">1 Win • 1 Loss</p>
+        </div>
+      </div>
+      <div class="text-right">
+        <p class="text-2xl font-extrabold">3</p>
+        <p class="text-xs opacity-70">Points</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- MATCHES TAB -->
+  <div id="matches-tab" class="mt-6 space-y-3 hidden">
+    
+    <div class="card p-4">
+      <div class="flex justify-between items-center mb-2">
+        <span class="text-xs opacity-70">Semi-Finals • Match 1</span>
+        <span class="bg-green-400 text-black px-2 py-1 rounded text-xs font-bold">Completed</span>
+      </div>
+      <div class="flex justify-between items-center">
+        <div>
+          <p class="font-bold">Alex Johnson</p>
+          <p class="text-sm opacity-80">vs Sarah Williams</p>
+        </div>
+        <p class="text-2xl font-extrabold">11-9</p>
+      </div>
+    </div>
+
+    <div class="card p-4">
+      <div class="flex justify-between items-center mb-2">
+        <span class="text-xs opacity-70">Semi-Finals • Match 2</span>
+        <span class="bg-yellow-300 text-black px-2 py-1 rounded text-xs font-bold">Upcoming</span>
+      </div>
+      <div class="flex justify-between items-center">
+        <div>
+          <p class="font-bold">Jessica Lee</p>
+          <p class="text-sm opacity-80">vs David Brown</p>
+        </div>
+        <p class="text-sm opacity-70">Today 6 PM</p>
+      </div>
+    </div>
+
+    <div class="card p-4">
+      <div class="flex justify-between items-center mb-2">
+        <span class="text-xs opacity-70">Quarter-Finals • Match 4</span>
+        <span class="bg-green-400 text-black px-2 py-1 rounded text-xs font-bold">Completed</span>
+      </div>
+      <div class="flex justify-between items-center">
+        <div>
+          <p class="font-bold">David Brown</p>
+          <p class="text-sm opacity-80">vs Lisa Martinez</p>
+        </div>
+        <p class="text-2xl font-extrabold">11-7</p>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- FOOTER NAV -->
+<nav class="fixed bottom-0 left-0 w-full bg-[var(--sicko-dark)] py-3 shadow-2xl border-t border-white/20">
+  <div class="flex justify-around text-xl">
+    <a href="dashboard.html" class="opacity-80 hover:opacity-100">🏠</a>
+    <a href="club.html" class="text-yellow-300 font-extrabold">⛳</a>
+    <a href="calendar.html" class="opacity-80 hover:opacity-100">📅</a>
+    <a href="search.html" class="opacity-80 hover:opacity-100">🔍</a>
+    <a href="profile.html" class="opacity-80 hover:opacity-100">👤</a>
+  </div>
+</nav>
+
+<!-- TAB SCRIPT -->
+<script>
+  /**
+   * Sports Sicko - Tournament Display Module
+   * Handles bracket visualization, standings, and match tracking
+   * Implements winner determination logic based on points
+   * Developer: Modular tab system for tournament data display
+   */
+
+  const tabBracket = document.getElementById("tab-bracket");
+  const tabStandings = document.getElementById("tab-standings");
+  const tabMatches = document.getElementById("tab-matches");
+
+  const bracketTab = document.getElementById("bracket-tab");
+  const standingsTab = document.getElementById("standings-tab");
+  const matchesTab = document.getElementById("matches-tab");
+
+  function resetTabs() {
+    tabBracket.classList.remove("tab-active");
+    tabStandings.classList.remove("tab-active");
+    tabMatches.classList.remove("tab-active");
+
+    bracketTab.classList.add("hidden");
+    standingsTab.classList.add("hidden");
+    matchesTab.classList.add("hidden");
+  }
+
+  tabBracket.onclick = () => {
+    resetTabs();
+    tabBracket.classList.add("tab-active");
+    bracketTab.classList.remove("hidden");
+  };
+
+  tabStandings.onclick = () => {
+    resetTabs();
+    tabStandings.classList.add("tab-active");
+    standingsTab.classList.remove("hidden");
+  };
+
+  tabMatches.onclick = () => {
+    resetTabs();
+    tabMatches.classList.add("tab-active");
+    matchesTab.classList.remove("hidden");
+  };
+
+  /**
+   * Calculate tournament standings based on match results
+   * @param {Array} matches - Array of match objects with results
+   * @param {Object} pointsSystem - Points for win/loss/draw
+   * @returns {Array} Sorted standings array
+   */
+  function calculateStandings(matches, pointsSystem) {
+    const standings = {};
+
+    matches.forEach(match => {
+      if (match.status === 'completed') {
+        // Initialize players if not exists
+        if (!standings[match.participant1]) {
+          standings[match.participant1] = { wins: 0, losses: 0, draws: 0, points: 0 };
+        }
+        if (!standings[match.participant2]) {
+          standings[match.participant2] = { wins: 0, losses: 0, draws: 0, points: 0 };
+        }
+
+        // Update stats based on winner
+        if (match.winner === match.participant1) {
+          standings[match.participant1].wins++;
+          standings[match.participant1].points += pointsSystem.win;
+          standings[match.participant2].losses++;
+          standings[match.participant2].points += pointsSystem.loss;
+        } else if (match.winner === match.participant2) {
+          standings[match.participant2].wins++;
+          standings[match.participant2].points += pointsSystem.win;
+          standings[match.participant1].losses++;
+          standings[match.participant1].points += pointsSystem.loss;
+        } else if (match.winner === 'draw') {
+          standings[match.participant1].draws++;
+          standings[match.participant1].points += pointsSystem.draw;
+          standings[match.participant2].draws++;
+          standings[match.participant2].points += pointsSystem.draw;
+        }
+      }
+    });
+
+    // Convert to array and sort by points
+    const standingsArray = Object.entries(standings).map(([player, stats]) => ({
+      player,
+      ...stats
+    }));
+
+    standingsArray.sort((a, b) => {
+      if (b.points !== a.points) return b.points - a.points;
+      if (b.wins !== a.wins) return b.wins - a.wins;
+      return a.losses - b.losses;
+    });
+
+    return standingsArray;
+  }
+
+  /**
+   * Determine tournament winner based on bracket type
+   * @param {Object} tournament - Tournament object with matches and bracket
+   * @returns {string} Winner's name
+   */
+  function determineTournamentWinner(tournament) {
+    if (tournament.bracketType === 'single-elimination' || tournament.bracketType === 'double-elimination') {
+      // Winner is the winner of the final match
+      const finalMatch = tournament.bracket.rounds[tournament.bracket.rounds.length - 1].matches[0];
+      return finalMatch.winner;
+    } else if (tournament.bracketType === 'round-robin') {
+      // Winner is player with most points
+      const standings = calculateStandings(tournament.matches, tournament.pointsSystem);
+      return standings[0]?.player;
+    }
+    return null;
+  }
+
+  // Load tournament data from URL parameter or localStorage
+  function loadTournamentData() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const tournamentId = urlParams.get('id');
+    
+    if (tournamentId) {
+      // In production, fetch from API
+      // const tournament = await fetch(`/api/tournaments/${tournamentId}`);
+      
+      // Demo: load from localStorage
+      const tournaments = JSON.parse(localStorage.getItem('tournaments') || '[]');
+      const tournament = tournaments.find(t => t.id === tournamentId);
+      
+      if (tournament) {
+        document.getElementById('tournament-name').textContent = tournament.name;
+        document.getElementById('tournament-info').textContent = 
+          `${tournament.bracketType} • ${tournament.participants} Players`;
+        document.getElementById('tournament-status').textContent = tournament.status;
+      } else {
+        // Handle tournament not found
+        console.warn('Tournament not found:', tournamentId);
+        document.getElementById('tournament-name').textContent = 'Tournament Not Found';
+        document.getElementById('tournament-info').textContent = 'The requested tournament does not exist.';
+      }
+    }
+  }
+
+  // Load tournament data on page load
+  loadTournamentData();
+</script>
+
+</body>
+</html>
