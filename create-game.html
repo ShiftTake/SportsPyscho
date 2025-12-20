@@ -1,1 +1,137 @@
-a
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Siko • Create a Game</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --siko-purple: #2e026d; 
+      --siko-dark: #0f051d;   
+      --siko-neon: #ccff00;   
+    }
+    body {
+      background-color: var(--siko-dark);
+      font-family: 'Inter', sans-serif;
+    }
+    .input-field {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 0.75rem;
+      padding: 1rem;
+      width: 100%;
+      color: white;
+      outline: none;
+      transition: all 0.2s;
+    }
+    .input-field:focus {
+      border-color: var(--siko-neon);
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .siko-step {
+      border-left: 2px solid var(--siko-neon);
+      padding-left: 1.5rem;
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body class="text-white min-h-screen">
+
+  <nav class="p-6 max-w-4xl mx-auto flex justify-between items-center">
+    <a href="index.html" class="text-sm font-black uppercase tracking-widest opacity-60 hover:opacity-100 transition">
+      ← Back to Home
+    </a>
+    <div class="text-xl font-black italic uppercase">
+      Sports <span class="text-[var(--siko-neon)]">Siko</span>
+    </div>
+  </nav>
+
+  <main class="max-w-3xl mx-auto px-6 py-12">
+    <header class="mb-12">
+      <h1 class="text-4xl md:text-5xl font-black italic uppercase tracking-tighter">
+        Organize a <span class="text-[var(--siko-neon)]">Game</span>
+      </h1>
+      <p class="text-gray-400 mt-2">Fill out the vitals. We'll handle the invites and RSVPs.</p>
+    </header>
+
+    <form action="#" class="space-y-8">
+      
+      <div class="siko-step">
+        <label class="block text-xs font-black uppercase tracking-widest text-[var(--siko-neon)] mb-4">01. Select Sport</label>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <label class="cursor-pointer">
+            <input type="radio" name="sport" class="hidden peer" checked>
+            <div class="p-4 border border-white/10 rounded-xl text-center peer-checked:bg-[var(--siko-neon)] peer-checked:text-black font-bold transition">
+              ⚽ Soccer
+            </div>
+          </label>
+          <label class="cursor-pointer">
+            <input type="radio" name="sport" class="hidden peer">
+            <div class="p-4 border border-white/10 rounded-xl text-center peer-checked:bg-[var(--siko-neon)] peer-checked:text-black font-bold transition">
+              🏀 Basketball
+            </div>
+          </label>
+          <label class="cursor-pointer">
+            <input type="radio" name="sport" class="hidden peer">
+            <div class="p-4 border border-white/10 rounded-xl text-center peer-checked:bg-[var(--siko-neon)] peer-checked:text-black font-bold transition">
+              🏓 Pickleball
+            </div>
+          </label>
+          <label class="cursor-pointer">
+            <input type="radio" name="sport" class="hidden peer">
+            <div class="p-4 border border-white/10 rounded-xl text-center peer-checked:bg-[var(--siko-neon)] peer-checked:text-black font-bold transition">
+              🏈 Football
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <div class="siko-step">
+        <label class="block text-xs font-black uppercase tracking-widest text-[var(--siko-neon)] mb-4">02. Time & Place</label>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-[10px] uppercase font-bold mb-1 opacity-50">Date</label>
+            <input type="date" class="input-field">
+          </div>
+          <div>
+            <label class="block text-[10px] uppercase font-bold mb-1 opacity-50">Kickoff Time</label>
+            <input type="time" class="input-field">
+          </div>
+          <div class="md:col-span-2">
+            <label class="block text-[10px] uppercase font-bold mb-1 opacity-50">Location / Venue Name</label>
+            <input type="text" placeholder="e.g. Central Park North Courts" class="input-field">
+          </div>
+        </div>
+      </div>
+
+      <div class="siko-step">
+        <label class="block text-xs font-black uppercase tracking-widest text-[var(--siko-neon)] mb-4">03. Squad Details</label>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-[10px] uppercase font-bold mb-1 opacity-50">Max Players</label>
+            <input type="number" placeholder="10" class="input-field">
+          </div>
+          <div>
+            <label class="block text-[10px] uppercase font-bold mb-1 opacity-50">Game Cost (optional)</label>
+            <input type="text" placeholder="$0.00" class="input-field">
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-6">
+        <button type="submit" class="w-full bg-[var(--siko-neon)] text-black font-black py-5 rounded-2xl text-xl uppercase italic hover:scale-[1.02] transition-transform shadow-[0_10px_40px_rgba(204,255,0,0.15)]">
+          Launch Game Lobby
+        </button>
+        <p class="text-center text-gray-500 text-xs mt-4">By launching, you'll get a shareable link for your squad.</p>
+      </div>
+
+    </form>
+  </main>
+
+  <footer class="py-12 opacity-20 text-center text-[10px] font-black uppercase tracking-[0.4em]">
+    Sports Siko Protocol 2025
+  </footer>
+
+</body>
+</html>
