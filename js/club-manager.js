@@ -247,5 +247,5 @@ class ClubManager {
 
 // Initialize global instance
 if (typeof apiClient !== 'undefined') {
-  const clubManager = new ClubManager(apiClient);
+  window.clubManager = new ClubManager(apiClient);
 }

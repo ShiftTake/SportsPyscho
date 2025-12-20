@@ -165,8 +165,17 @@
   }
 
   // Setup join/withdraw buttons
-  const joinBtn = document.querySelector('button:contains("Join Event")');
-  const withdrawBtn = document.querySelector('button:contains("Withdraw")');
+  const buttons = document.querySelectorAll('button');
+  let joinBtn = null;
+  let withdrawBtn = null;
+
+  buttons.forEach(btn => {
+    if (btn.textContent.includes('Join Event')) {
+      joinBtn = btn;
+    } else if (btn.textContent.includes('Withdraw')) {
+      withdrawBtn = btn;
+    }
+  });
 
   if (joinBtn && typeof eventManager !== 'undefined') {
     joinBtn.addEventListener('click', () => {

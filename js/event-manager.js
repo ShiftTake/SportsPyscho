@@ -332,5 +332,5 @@ class EventManager {
 
 // Initialize global instance
 if (typeof apiClient !== 'undefined') {
-  const eventManager = new EventManager(apiClient);
+  window.eventManager = new EventManager(apiClient);
 }

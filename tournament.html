@@ -143,9 +143,18 @@
     // Load tournament details
     tournamentManager.loadTournamentDetails(tournamentId, 'tournament-details');
     
-    // Load bracket/standings based on tournament type
-    tournamentManager.renderBracket(tournamentId, 'bracket-container');
-    tournamentManager.renderStandings(tournamentId, 'bracket-container');
+    // Load bracket or standings based on tournament type
+    apiClient.getTournamentById(tournamentId).then(result => {
+      if (result.success) {
+        const tournament = result.data;
+        
+        if (tournament.type === 'elimination') {
+          tournamentManager.renderBracket(tournamentId, 'bracket-container');
+        } else if (tournament.type === 'round-robin') {
+          tournamentManager.renderStandings(tournamentId, 'bracket-container');
+        }
+      }
+    });
 
     // Load participants
     apiClient.getTournamentById(tournamentId).then(result => {

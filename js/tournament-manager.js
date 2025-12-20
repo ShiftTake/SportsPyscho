@@ -405,5 +405,5 @@ class TournamentManager {
 
 // Initialize global instance
 if (typeof apiClient !== 'undefined') {
-  const tournamentManager = new TournamentManager(apiClient);
+  window.tournamentManager = new TournamentManager(apiClient);
 }
