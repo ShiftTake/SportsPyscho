@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sports Psycho • Tournament</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet"/>
+
+  <!-- JavaScript modules -->
+  <script src="js/api-client.js"></script>
+  <script src="js/tournament-manager.js"></script>
+
+  <style>
+    :root {
+      --psycho-purple: #5821a6;
+      --psycho-deep: #2a0b58;
+      --psycho-blue: #4ad2ff;
+      --psycho-yellow: #ffdd57;
+    }
+
+    body {
+      background: var(--psycho-purple);
+      background-image: url("https://www.transparenttextures.com/patterns/pw-maze-black.png");
+      font-family: 'Inter', sans-serif;
+      color: white;
+      padding-bottom: 100px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.14);
+      border: 2px solid rgba(255, 255, 255, 0.18);
+      border-radius: 24px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.35);
+    }
+
+    .tab-active {
+      border-bottom: 3px solid var(--psycho-yellow);
+      font-weight: 900;
+      color: var(--psycho-yellow);
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="px-4 py-4 flex items-center justify-between bg-[var(--psycho-deep)] shadow-xl sticky top-0 z-50">
+  <a href="club.html" class="text-3xl text-[var(--psycho-yellow)]">←</a>
+  <h1 class="text-xl font-extrabold">Tournament</h1>
+  <div class="w-8"></div>
+</header>
+
+<!-- TOURNAMENT DETAILS -->
+<section class="px-4 mt-6">
+  <div id="tournament-details">
+    <!-- Loaded dynamically -->
+    <div class="card p-6 text-center">
+      <p class="opacity-70">Loading tournament details...</p>
+    </div>
+  </div>
+</section>
+
+<!-- TABS -->
+<section class="mt-6">
+  <div class="flex justify-around text-lg font-bold px-4 pb-3 border-b border-white/30">
+    <button id="tab-bracket" class="tab-active">Bracket/Matches</button>
+    <button id="tab-participants" class="opacity-70 hover:opacity-100">Participants</button>
+  </div>
+</section>
+
+<!-- TAB CONTENT -->
+<div id="content-container" class="px-4 pb-24">
+
+  <!-- BRACKET/STANDINGS TAB -->
+  <div id="bracket-tab" class="mt-6">
+    <div id="bracket-container">
+      <!-- Loaded dynamically -->
+      <div class="card p-6 text-center">
+        <p class="opacity-70">Loading bracket/standings...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PARTICIPANTS TAB -->
+  <div id="participants-tab" class="mt-6 space-y-4 hidden">
+    <div id="participants-container">
+      <!-- Loaded dynamically -->
+      <div class="card p-6 text-center">
+        <p class="opacity-70">Loading participants...</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER NAV -->
+<nav class="fixed bottom-0 left-0 w-full bg-[var(--psycho-deep)] py-3 shadow-2xl border-t border-white/20">
+  <div class="flex justify-around text-xl">
+    <a href="dashboard.html" class="opacity-80 hover:opacity-100">🏠</a>
+    <a href="club.html" class="text-yellow-300 font-extrabold">⛳</a>
+    <a href="calendar.html" class="opacity-80 hover:opacity-100">📅</a>
+    <a href="search.html" class="opacity-80 hover:opacity-100">🔍</a>
+    <a href="profile.html" class="opacity-80 hover:opacity-100">👤</a>
+  </div>
+</nav>
+
+<!-- TAB SCRIPT -->
+<script>
+  const tabBracket = document.getElementById("tab-bracket");
+  const tabParticipants = document.getElementById("tab-participants");
+
+  const bracketTab = document.getElementById("bracket-tab");
+  const participantsTab = document.getElementById("participants-tab");
+
+  function resetTabs() {
+    tabBracket.classList.remove("tab-active");
+    tabParticipants.classList.remove("tab-active");
+
+    bracketTab.classList.add("hidden");
+    participantsTab.classList.add("hidden");
+  }
+
+  tabBracket.onclick = () => {
+    resetTabs();
+    tabBracket.classList.add("tab-active");
+    bracketTab.classList.remove("hidden");
+  };
+
+  tabParticipants.onclick = () => {
+    resetTabs();
+    tabParticipants.classList.add("tab-active");
+    participantsTab.classList.remove("hidden");
+  };
+
+  // Load tournament data
+  const urlParams = new URLSearchParams(window.location.search);
+  const tournamentId = urlParams.get('id');
+
+  if (tournamentId && typeof tournamentManager !== 'undefined') {
+    // Load tournament details
+    tournamentManager.loadTournamentDetails(tournamentId, 'tournament-details');
+    
+    // Load bracket or standings based on tournament type
+    apiClient.getTournamentById(tournamentId).then(result => {
+      if (result.success) {
+        const tournament = result.data;
+        
+        if (tournament.type === 'elimination') {
+          tournamentManager.renderBracket(tournamentId, 'bracket-container');
+        } else if (tournament.type === 'round-robin') {
+          tournamentManager.renderStandings(tournamentId, 'bracket-container');
+        }
+      }
+    });
+
+    // Load participants
+    apiClient.getTournamentById(tournamentId).then(result => {
+      if (result.success) {
+        const tournament = result.data;
+        const participantsContainer = document.getElementById('participants-container');
+        
+        if (tournament.participantIds.length === 0) {
+          participantsContainer.innerHTML = '<p class="opacity-70">No participants yet</p>';
+        } else {
+          participantsContainer.innerHTML = tournament.participantIds.map(pid => `
+            <div class="card p-4 flex items-center space-x-4">
+              <div class="w-14 h-14 rounded-full border-2 border-white bg-white/10"></div>
+              <div>
+                <p class="font-bold text-lg">${pid}</p>
+                <p class="text-sm opacity-70">Participant</p>
+              </div>
+            </div>
+          `).join('');
+        }
+      }
+    });
+  }
+</script>
+
+</body>
+</html>

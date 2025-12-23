@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sports Psycho • Create Tournament</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet"/>
+
+  <!-- JavaScript modules -->
+  <script src="js/api-client.js"></script>
+  <script src="js/tournament-manager.js"></script>
+
+  <style>
+    :root {
+      --psycho-purple: #5821a6;
+      --psycho-deep: #2a0b58;
+      --psycho-blue: #4ad2ff;
+      --psycho-yellow: #ffdd57;
+    }
+
+    body {
+      background: var(--psycho-purple);
+      background-image: url("https://www.transparenttextures.com/patterns/pw-maze-black.png");
+      font-family: 'Inter', sans-serif;
+      color: white;
+      padding-bottom: 100px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.14);
+      border: 2px solid rgba(255, 255, 255, 0.18);
+      border-radius: 24px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.35);
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="px-4 py-4 flex items-center justify-between bg-[var(--psycho-deep)] shadow-xl sticky top-0 z-50">
+  <a href="club.html" class="text-3xl text-[var(--psycho-yellow)]">←</a>
+  <h1 class="text-xl font-extrabold">Create Tournament</h1>
+  <div class="w-8"></div>
+</header>
+
+<!-- FORM CARD -->
+<section class="px-4 mt-6">
+  <div class="card p-6">
+
+    <form id="create-tournament-form">
+      <!-- Hidden club ID -->
+      <input type="hidden" name="clubId" id="clubId" value="">
+
+      <!-- Tournament Name -->
+      <div class="mb-5">
+        <label class="text-sm font-semibold mb-1 block">Tournament Name</label>
+        <input 
+          type="text"
+          name="name"
+          placeholder="Summer Championship 2024"
+          required
+          class="w-full px-4 py-3 text-black rounded-xl font-semibold shadow focus:outline-none"
+        >
+      </div>
+
+      <!-- Tournament Type -->
+      <div class="mb-5">
+        <label class="text-sm font-semibold mb-2 block">Tournament Type</label>
+
+        <div class="flex items-center space-x-4">
+          <label class="flex items-center space-x-2 cursor-pointer">
+            <input type="radio" name="type" value="elimination" checked>
+            <span>Single Elimination</span>
+          </label>
+
+          <label class="flex items-center space-x-2 cursor-pointer">
+            <input type="radio" name="type" value="round-robin">
+            <span>Round Robin</span>
+          </label>
+        </div>
+        <p class="opacity-70 text-xs mt-2">
+          <strong>Elimination:</strong> Bracket-style tournament where losing teams are eliminated.<br>
+          <strong>Round Robin:</strong> Every participant plays every other participant.
+        </p>
+      </div>
+
+      <!-- Start Date -->
+      <div class="mb-5">
+        <label class="text-sm font-semibold mb-1 block">Start Date</label>
+        <input 
+          type="date"
+          name="startDate"
+          required
+          class="w-full px-4 py-3 text-black rounded-xl font-semibold shadow focus:outline-none"
+        >
+      </div>
+
+      <!-- End Date -->
+      <div class="mb-5">
+        <label class="text-sm font-semibold mb-1 block">End Date (Optional)</label>
+        <input 
+          type="date"
+          name="endDate"
+          class="w-full px-4 py-3 text-black rounded-xl font-semibold shadow focus:outline-none"
+        >
+      </div>
+
+      <!-- Participants -->
+      <div class="mb-5">
+        <label class="text-sm font-semibold mb-1 block">Participants</label>
+        <textarea 
+          name="participantIds"
+          rows="4"
+          placeholder="Enter participant IDs separated by commas (e.g., user123, user456, user789)"
+          required
+          class="w-full px-4 py-3 text-black rounded-xl font-semibold shadow focus:outline-none"
+        ></textarea>
+        <p class="opacity-70 text-xs mt-1">Minimum 2 participants required. For elimination, bracket will auto-adjust for any number.</p>
+      </div>
+
+      <!-- Description -->
+      <div class="mb-5">
+        <label class="text-sm font-semibold mb-1 block">Description (Optional)</label>
+        <textarea 
+          name="description"
+          rows="4"
+          placeholder="Annual summer championship open to all club members..."
+          class="w-full px-4 py-3 text-black rounded-xl font-semibold shadow focus:outline-none"
+        ></textarea>
+      </div>
+
+      <!-- Create Button -->
+      <button 
+        type="submit"
+        class="w-full bg-[var(--psycho-blue)] text-black py-3 rounded-xl text-lg font-bold shadow-xl hover:scale-[1.02] transition"
+      >
+        Create Tournament
+      </button>
+    </form>
+
+  </div>
+</section>
+
+<!-- FOOTER NAV -->
+<nav class="fixed bottom-0 left-0 w-full bg-[var(--psycho-deep)] py-3 shadow-2xl border-t border-white/20">
+  <div class="flex justify-around text-xl">
+    <a href="dashboard.html" class="opacity-80 hover:opacity-100">🏠</a>
+    <a href="club.html" class="opacity-80 hover:opacity-100">⛳</a>
+    <a href="calendar.html" class="opacity-80 hover:opacity-100">📅</a>
+    <a href="search.html" class="opacity-80 hover:opacity-100">🔍</a>
+    <a href="profile.html" class="opacity-80 hover:opacity-100">👤</a>
+  </div>
+</nav>
+
+<script>
+  // Get club ID from URL params
+  const urlParams = new URLSearchParams(window.location.search);
+  const clubId = urlParams.get('clubId');
+  if (clubId) {
+    document.getElementById('clubId').value = clubId;
+  }
+
+  // Initialize the form
+  if (typeof tournamentManager !== 'undefined') {
+    tournamentManager.initializeCreateForm('create-tournament-form');
+  }
+</script>
+
+</body>
+</html>

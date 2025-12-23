@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sports Psycho - Module Test</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: #5821a6;
+      color: white;
+      font-family: 'Inter', sans-serif;
+      padding: 20px;
+    }
+    .test-result {
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+    }
+    .pass { background: #10b981; }
+    .fail { background: #ef4444; }
+  </style>
+</head>
+<body>
+  <h1 class="text-3xl font-bold mb-6">Sports Psycho - Module Test</h1>
+  
+  <div id="test-results"></div>
+
+  <!-- Load modules -->
+  <script src="js/api-client.js"></script>
+  <script src="js/club-manager.js"></script>
+  <script src="js/event-manager.js"></script>
+  <script src="js/tournament-manager.js"></script>
+
+  <script>
+    const results = document.getElementById('test-results');
+    
+    function addResult(name, passed, message) {
+      const div = document.createElement('div');
+      div.className = `test-result ${passed ? 'pass' : 'fail'}`;
+      div.innerHTML = `
+        <strong>${passed ? '✓' : '✗'} ${name}</strong><br>
+        ${message}
+      `;
+      results.appendChild(div);
+    }
+
+    // Test 1: Check if APIClient is loaded
+    try {
+      if (typeof APIClient !== 'undefined') {
+        addResult('APIClient Module', true, 'APIClient class is loaded');
+      } else {
+        addResult('APIClient Module', false, 'APIClient class not found');
+      }
+    } catch (e) {
+      addResult('APIClient Module', false, e.message);
+    }
+
+    // Test 2: Check if apiClient instance is created
+    try {
+      if (typeof apiClient !== 'undefined') {
+        addResult('apiClient Instance', true, 'apiClient instance is available');
+      } else {
+        addResult('apiClient Instance', false, 'apiClient instance not found');
+      }
+    } catch (e) {
+      addResult('apiClient Instance', false, e.message);
+    }
+
+    // Test 3: Check if ClubManager is loaded
+    try {
+      if (typeof ClubManager !== 'undefined') {
+        addResult('ClubManager Module', true, 'ClubManager class is loaded');
+      } else {
+        addResult('ClubManager Module', false, 'ClubManager class not found');
+      }
+    } catch (e) {
+      addResult('ClubManager Module', false, e.message);
+    }
+
+    // Test 4: Check if clubManager instance is created
+    try {
+      if (typeof clubManager !== 'undefined') {
+        addResult('clubManager Instance', true, 'clubManager instance is available');
+      } else {
+        addResult('clubManager Instance', false, 'clubManager instance not found');
+      }
+    } catch (e) {
+      addResult('clubManager Instance', false, e.message);
+    }
+
+    // Test 5: Check if EventManager is loaded
+    try {
+      if (typeof EventManager !== 'undefined') {
+        addResult('EventManager Module', true, 'EventManager class is loaded');
+      } else {
+        addResult('EventManager Module', false, 'EventManager class not found');
+      }
+    } catch (e) {
+      addResult('EventManager Module', false, e.message);
+    }
+
+    // Test 6: Check if eventManager instance is created
+    try {
+      if (typeof eventManager !== 'undefined') {
+        addResult('eventManager Instance', true, 'eventManager instance is available');
+      } else {
+        addResult('eventManager Instance', false, 'eventManager instance not found');
+      }
+    } catch (e) {
+      addResult('eventManager Instance', false, e.message);
+    }
+
+    // Test 7: Check if TournamentManager is loaded
+    try {
+      if (typeof TournamentManager !== 'undefined') {
+        addResult('TournamentManager Module', true, 'TournamentManager class is loaded');
+      } else {
+        addResult('TournamentManager Module', false, 'TournamentManager class not found');
+      }
+    } catch (e) {
+      addResult('TournamentManager Module', false, e.message);
+    }
+
+    // Test 8: Check if tournamentManager instance is created
+    try {
+      if (typeof tournamentManager !== 'undefined') {
+        addResult('tournamentManager Instance', true, 'tournamentManager instance is available');
+      } else {
+        addResult('tournamentManager Instance', false, 'tournamentManager instance not found');
+      }
+    } catch (e) {
+      addResult('tournamentManager Instance', false, e.message);
+    }
+
+    // Test 9: Test API client methods
+    (async () => {
+      try {
+        const testClub = {
+          name: 'Test Club',
+          sport: 'Basketball',
+          privacy: 'public',
+          state: 'CA',
+          city: 'San Francisco',
+          description: 'Test club for validation',
+          ownerId: 'test_user_123'
+        };
+
+        const result = await apiClient.createClub(testClub);
+        
+        if (result.success && result.data.id) {
+          addResult('Create Club API', true, `Club created with ID: ${result.data.id}`);
+          
+          // Test retrieving the club
+          const getResult = await apiClient.getClubById(result.data.id);
+          if (getResult.success && getResult.data.name === testClub.name) {
+            addResult('Get Club API', true, 'Club retrieved successfully');
+          } else {
+            addResult('Get Club API', false, 'Failed to retrieve club');
+          }
+
+          // Clean up - delete test club
+          await apiClient.deleteClub(result.data.id);
+          addResult('Delete Club API', true, 'Test club cleaned up');
+        } else {
+          addResult('Create Club API', false, result.error || 'Unknown error');
+        }
+      } catch (e) {
+        addResult('API Tests', false, e.message);
+      }
+    })();
+
+    // Test 10: LocalStorage check
+    try {
+      if (typeof localStorage !== 'undefined') {
+        localStorage.setItem('test', 'value');
+        const value = localStorage.getItem('test');
+        localStorage.removeItem('test');
+        
+        if (value === 'value') {
+          addResult('LocalStorage', true, 'LocalStorage is working correctly');
+        } else {
+          addResult('LocalStorage', false, 'LocalStorage read/write failed');
+        }
+      } else {
+        addResult('LocalStorage', false, 'LocalStorage not available');
+      }
+    } catch (e) {
+      addResult('LocalStorage', false, e.message);
+    }
+  </script>
+</body>
+</html>
